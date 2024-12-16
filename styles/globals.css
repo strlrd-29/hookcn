@@ -57,11 +57,36 @@
     --chart-5: 340 75% 55%;
   }
 }
+
 @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .border-grid {
+    @apply border-border/30 dark:border-border;
+  }
+
+  .container-wrapper {
+    @apply mx-auto w-full border-border/30 dark:border-border min-[1800px]:max-w-[1536px] min-[1800px]:border-x;
+  }
+
+  .container {
+    @apply mx-auto max-w-[1536px] px-4 xl:px-6 2xl:px-4;
   }
 }
