@@ -1,10 +1,9 @@
 ---
 name: Documentation
 about: Suggest an edit for the documentation
-title: ''
-labels: ''
-assignees: ''
-
+title: ""
+labels: ""
+assignees: ""
 ---
 
 **Describe the documentation change**
