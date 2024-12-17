@@ -14,6 +14,7 @@
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.3",
     "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-tooltip": "^1.1.6",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "1.0.0",
@@ -24,6 +25,7 @@
     "react-dom": "^19.0.0",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
+    "use-scramble": "^2.2.15",
     "vaul": "^1.1.2"
   },
   "devDependencies": {

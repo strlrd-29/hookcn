@@ -9,7 +9,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
   return (
     <div className="border-grid flex flex-1 flex-col">
       <SiteHeader />
-      <main className="flex flex-1 flex-col">{children}</main>
+      <main className="container-wrapper flex flex-1 flex-col">{children}</main>
       <SiteFooter />
     </div>
   )

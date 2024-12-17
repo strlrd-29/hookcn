@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes"
 import { META_THEME_COLORS, siteConfig } from "~/config/site"
 import { fontMono, fontSans } from "~/lib/fonts"
 import { cn } from "~/lib/utils"
+import { TooltipProvider } from "~/components/ui/tooltip"
 
 import "~/styles/globals.css"
 
@@ -84,9 +85,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
           disableTransitionOnChange
           enableColorScheme
         >
-          <div className="relative flex min-h-svh flex-col bg-background">
-            {children}
-          </div>
+          <TooltipProvider>
+            <div className="relative flex min-h-svh flex-col bg-background">
+              {children}
+            </div>
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>
