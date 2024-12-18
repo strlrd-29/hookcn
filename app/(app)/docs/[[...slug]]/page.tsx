@@ -5,8 +5,10 @@ import { ChevronRightIcon } from "lucide-react"
 import { Balancer } from "react-wrap-balancer"
 
 import { siteConfig } from "~/config/site"
+import { getTableOfContents } from "~/lib/toc"
 import { absoluteUrl, cn } from "~/lib/utils"
 import { Mdx } from "~/components/mdx-components"
+import { DashboardTableOfContents } from "~/components/toc"
 
 import "~/styles/mdx.css"
 
@@ -82,8 +84,11 @@ export default async function DocPage(props: {
   if (!doc) {
     notFound()
   }
+
+  const toc = await getTableOfContents(doc.body.raw)
+
   return (
-    <main className="relative py-6 lg:gap-10 lg:py-8">
+    <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
       <div className="mx-auto w-full min-w-0 max-w-2xl">
         <div className="mb-4 flex items-center space-x-1 text-sm leading-none text-muted-foreground">
           <div className="truncate">Docs</div>
@@ -102,6 +107,13 @@ export default async function DocPage(props: {
         </div>
         <div className="pb-12 pt-8">
           <Mdx code={doc.body.code} />
+        </div>
+      </div>
+      <div className="hidden text-sm xl:block">
+        <div className="sticky top-20 -mt-6 h-[calc(100vh-3.5rem)] pt-4">
+          <div className="no-scrollbar h-full overflow-auto pb-10">
+            {doc.toc && <DashboardTableOfContents toc={toc} />}
+          </div>
         </div>
       </div>
     </main>

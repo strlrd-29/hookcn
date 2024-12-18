@@ -42,6 +42,22 @@
   text-align: right;
 }
 
+[data-rehype-pretty-code-figure] [data-highlighted-line] {
+  @apply bg-zinc-700/50;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-line] span {
+  @apply relative;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-chars] {
+  @apply rounded-md border-zinc-700/70 bg-background/50 px-1 py-px;
+}
+
+.dark [data-rehype-pretty-code-figure] [data-highlighted-chars] {
+  @apply bg-background/50;
+}
+
 [data-rehype-pretty-code-title] {
   @apply mt-2 px-4 pt-6 text-sm font-medium text-foreground;
 }
