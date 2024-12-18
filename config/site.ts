@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "use-x",
+  name: "hookcn",
   url: "https://hooks.ouassim.tech",
   ogImage: "https://hooks.ouassim.tech/og.jpg",
   description:
