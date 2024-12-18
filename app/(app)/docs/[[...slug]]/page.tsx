@@ -13,6 +13,7 @@ import { DashboardTableOfContents } from "~/components/toc"
 import "~/styles/mdx.css"
 
 import { Contribute } from "~/components/contribute"
+import { DocGridPattern } from "~/components/doc-grid-pattern"
 
 interface DocPageProps {
   params: {
@@ -90,35 +91,38 @@ export default async function DocPage(props: {
   const toc = await getTableOfContents(doc.body.raw)
 
   return (
-    <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
-      <div className="mx-auto w-full min-w-0 max-w-2xl">
-        <div className="mb-4 flex items-center space-x-1 text-sm leading-none text-muted-foreground">
-          <div className="truncate">Docs</div>
-          <ChevronRightIcon className="size-3.5" />
-          <div className="text-foreground">{doc.title}</div>
-        </div>
-        <div className="space-y-2">
-          <h1 className={cn("scroll-m-20 text-3xl font-bold tracking-tight")}>
-            {doc.title}
-          </h1>
-          {doc.description && (
-            <p className="text-base text-muted-foreground">
-              <Balancer>{doc.description}</Balancer>
-            </p>
-          )}
-        </div>
-        <div className="pb-12 pt-8">
-          <Mdx code={doc.body.code} />
-        </div>
-      </div>
-      <div className="hidden text-sm xl:block">
-        <div className="sticky top-20 -mt-6 h-[calc(100vh-3.5rem)] pt-4">
-          <div className="no-scrollbar h-full space-y-4 overflow-auto pb-10">
-            {doc.toc && <DashboardTableOfContents toc={toc} />}
-            <Contribute slug={doc.slug} />
+    <>
+      <DocGridPattern />
+      <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
+        <div className="mx-auto w-full min-w-0 max-w-2xl">
+          <div className="mb-4 flex items-center space-x-1 text-sm leading-none text-muted-foreground">
+            <div className="truncate">Docs</div>
+            <ChevronRightIcon className="size-3.5" />
+            <div className="text-foreground">{doc.title}</div>
+          </div>
+          <div className="space-y-2">
+            <h1 className={cn("scroll-m-20 text-3xl font-bold tracking-tight")}>
+              {doc.title}
+            </h1>
+            {doc.description && (
+              <p className="text-base text-muted-foreground">
+                <Balancer>{doc.description}</Balancer>
+              </p>
+            )}
+          </div>
+          <div className="pb-12 pt-8">
+            <Mdx code={doc.body.code} />
           </div>
         </div>
-      </div>
-    </main>
+        <div className="hidden text-sm xl:block">
+          <div className="sticky top-20 -mt-6 h-[calc(100vh-3.5rem)] pt-4">
+            <div className="no-scrollbar h-full space-y-4 overflow-auto pb-10">
+              {doc.toc && <DashboardTableOfContents toc={toc} />}
+              <Contribute slug={doc.slug} />
+            </div>
+          </div>
+        </div>
+      </main>
+    </>
   )
 }
