@@ -4,17 +4,31 @@ import Image from "next/image"
 import Link from "next/link"
 import { useMDXComponent } from "next-contentlayer2/hooks"
 
-import { NpmCommands } from "~/types/unist"
+import type { NpmCommands } from "~/types/unist"
 import { cn } from "~/lib/utils"
-
-import { CodeBlockCommand } from "./code-block-command"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "~/components/ui/accordion"
+import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs"
+import { Callout } from "~/components/callout"
+import { CodeBlockCommand } from "~/components/code-block-command"
 
 interface MdxProps {
   code: string
 }
 
 const components = {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+  Alert,
+  AlertTitle,
+  AlertDescription,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
@@ -189,9 +203,7 @@ const components = {
     />
   ),
   Image,
-  // CodeBlockWrapper: ({ ...props }) => (
-  //   <CodeBlockWrapper className="rounded-md border" {...props} />
-  // ),
+  Callout,
   Step: ({ className, ...props }: React.ComponentProps<"h3">) => (
     <h3
       className={cn(
