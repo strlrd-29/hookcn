@@ -12,6 +12,8 @@ import { DashboardTableOfContents } from "~/components/toc"
 
 import "~/styles/mdx.css"
 
+import { Contribute } from "~/components/contribute"
+
 interface DocPageProps {
   params: {
     slug: string[]
@@ -111,8 +113,9 @@ export default async function DocPage(props: {
       </div>
       <div className="hidden text-sm xl:block">
         <div className="sticky top-20 -mt-6 h-[calc(100vh-3.5rem)] pt-4">
-          <div className="no-scrollbar h-full overflow-auto pb-10">
+          <div className="no-scrollbar h-full space-y-4 overflow-auto pb-10">
             {doc.toc && <DashboardTableOfContents toc={toc} />}
+            <Contribute slug={doc.slug} />
           </div>
         </div>
       </div>
