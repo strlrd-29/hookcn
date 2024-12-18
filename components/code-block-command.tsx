@@ -41,6 +41,7 @@ export function CodeBlockCommand({
       return
     }
 
+    navigator.clipboard.writeText(command)
     setHasCopied(true)
   }, [packageManager, tabs])
 

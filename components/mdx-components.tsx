@@ -18,6 +18,7 @@ import { Callout } from "~/components/callout"
 import { CodeBlockCommand } from "~/components/code-block-command"
 import { CodeBlockWrapper } from "~/components/code-block-wrapper"
 import { ComponentSource } from "~/components/component-source"
+import { CopyButton } from "~/components/copy-button"
 
 interface MdxProps {
   code: string
@@ -168,9 +169,10 @@ const components = {
     __yarnCommand__,
     __pnpmCommand__,
     __bunCommand__,
+    __rawstring__,
     ...props
   }: React.HTMLAttributes<HTMLPreElement> & {
-    __rawString__?: string
+    __rawstring__?: string
     __withMeta__?: boolean
   } & NpmCommands) => {
     const isNpmCommand =
@@ -196,6 +198,12 @@ const components = {
           )}
           {...props}
         />
+        {__rawstring__ && (
+          <CopyButton
+            value={__rawstring__}
+            className="absolute right-4 top-4"
+          />
+        )}
       </>
     )
   },

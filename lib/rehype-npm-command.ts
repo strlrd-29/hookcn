@@ -84,9 +84,7 @@ export function rehypeNpmCommand() {
         )
       }
 
-      delete node.properties?.["__rawstring__"]
       delete node.properties?.["style"]
-      delete node.properties?.["tabindex"]
     })
   }
 }
