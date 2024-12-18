@@ -9,7 +9,8 @@ import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
 import { visit } from "unist-util-visit"
 
-import { rehypeNpmCommand } from "./lib/rehype-npm-command"
+import { rehypeComponent } from "~/lib/rehype-component"
+import { rehypeNpmCommand } from "~/lib/rehype-npm-command"
 
 const computedFields: ComputedFields = {
   slug: {
@@ -51,6 +52,7 @@ export default makeSource({
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
       rehypeSlug,
+      rehypeComponent,
       () => (tree) => {
         visit(tree, (node) => {
           if (node?.type === "element" && node?.tagName === "pre") {

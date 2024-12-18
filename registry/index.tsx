@@ -2,11 +2,11 @@ import type { Registry } from "~/registry/schema"
 
 export const registry: Registry = [
   {
-    name: "use-mobile",
+    name: "use-boolean",
     type: "registry:hook",
     files: [
       {
-        path: "hooks/use-mobile.tsx",
+        path: "hooks/use-boolean.tsx",
         type: "registry:hook",
       },
     ],

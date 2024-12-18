@@ -16,6 +16,8 @@ import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs"
 import { Callout } from "~/components/callout"
 import { CodeBlockCommand } from "~/components/code-block-command"
+import { CodeBlockWrapper } from "~/components/code-block-wrapper"
+import { ComponentSource } from "~/components/component-source"
 
 interface MdxProps {
   code: string
@@ -29,6 +31,10 @@ const components = {
   Alert,
   AlertTitle,
   AlertDescription,
+  ComponentSource,
+  CodeBlockWrapper: ({ ...props }) => (
+    <CodeBlockWrapper className="rounded-md border" {...props} />
+  ),
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
@@ -240,7 +246,7 @@ const components = {
   }: React.ComponentProps<typeof TabsTrigger>) => (
     <TabsTrigger
       className={cn(
-        "relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none",
+        "relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none",
         className
       )}
       {...props}

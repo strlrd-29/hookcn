@@ -11,7 +11,7 @@ export default function Home() {
       <div className="z-10 flex flex-col items-center space-y-6">
         <div className="space-y-1 text-center">
           <h1 className="text-4xl font-bold">
-            use-
+            use
             <span className="inline-block">
               <ScrambleText />
             </span>

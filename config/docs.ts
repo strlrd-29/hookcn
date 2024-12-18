@@ -40,18 +40,8 @@ export const docsConfig: DocsConfig = {
       title: "Hooks",
       items: [
         {
-          title: "Use Local Storage",
-          href: "/docs/hooks/use-local-storage",
-          items: [],
-        },
-        {
           title: "Use Boolean",
           href: "/docs/hooks/use-boolean",
-          items: [],
-        },
-        {
-          title: "Use Copy To Clipboard",
-          href: "/docs/hooks/use-copy-to-clipboard",
           items: [],
         },
       ],

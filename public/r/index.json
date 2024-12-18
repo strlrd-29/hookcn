@@ -1,10 +1,10 @@
 [
   {
-    "name": "use-mobile",
+    "name": "use-boolean",
     "type": "registry:hook",
     "files": [
       {
-        "path": "hooks/use-mobile.tsx",
+        "path": "hooks/use-boolean.tsx",
         "type": "registry:hook"
       }
     ]
