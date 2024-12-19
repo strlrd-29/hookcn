@@ -1,7 +1,6 @@
 import * as React from "react"
-
-import { docsConfig } from "~/config/docs"
-import { DocsNav } from "~/components/docs-nav"
+import { DocsNav } from "@/components/docs-nav"
+import { docsConfig } from "@/config/docs"
 
 interface DocsLayoutProps {
   children: React.ReactNode

@@ -1,9 +1,8 @@
 "use client"
 
 import * as React from "react"
-
-import { cn } from "~/lib/utils"
-import { CodeBlockWrapper } from "~/components/code-block-wrapper"
+import { CodeBlockWrapper } from "@/components/code-block-wrapper"
+import { cn } from "@/lib/utils"
 
 interface ComponentSourceProps extends React.HTMLAttributes<HTMLDivElement> {
   src: string

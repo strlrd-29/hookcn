@@ -1,13 +1,12 @@
 import Link from "next/link"
-
-import { siteConfig } from "~/config/site"
-import { cn } from "~/lib/utils"
-import { buttonVariants } from "~/components/ui/button"
-import { CommandMenu } from "~/components/command-menu"
-import { Icons } from "~/components/icons"
-import { MainNav } from "~/components/main-nav"
-import { MobileNav } from "~/components/mobile-nav"
-import { ThemeSwitcher } from "~/components/theme-switcher"
+import { CommandMenu } from "@/components/command-menu"
+import { Icons } from "@/components/icons"
+import { MainNav } from "@/components/main-nav"
+import { MobileNav } from "@/components/mobile-nav"
+import { ThemeSwitcher } from "@/components/theme-switcher"
+import { buttonVariants } from "@/components/ui/button"
+import { siteConfig } from "@/config/site"
+import { cn } from "@/lib/utils"
 
 export function SiteHeader() {
   return (

@@ -2,23 +2,22 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useMDXComponent } from "next-contentlayer2/hooks"
-
-import type { NpmCommands } from "~/types/unist"
-import { cn } from "~/lib/utils"
+import { Callout } from "@/components/callout"
+import { CodeBlockCommand } from "@/components/code-block-command"
+import { CodeBlockWrapper } from "@/components/code-block-wrapper"
+import { ComponentSource } from "@/components/component-source"
+import { CopyButton } from "@/components/copy-button"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "~/components/ui/accordion"
-import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs"
-import { Callout } from "~/components/callout"
-import { CodeBlockCommand } from "~/components/code-block-command"
-import { CodeBlockWrapper } from "~/components/code-block-wrapper"
-import { ComponentSource } from "~/components/component-source"
-import { CopyButton } from "~/components/copy-button"
+} from "@/components/ui/accordion"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { cn } from "@/lib/utils"
+import type { NpmCommands } from "@/types/unist"
+import { useMDXComponent } from "next-contentlayer2/hooks"
 
 interface MdxProps {
   code: string
@@ -132,7 +131,7 @@ const components = {
     <div className="my-6 w-full overflow-y-auto">
       <table
         className={cn(
-          "relative w-full overflow-hidden border-none text-sm",
+          "relative w-full overflow-hidden border-none text-sm md:text-base",
           className
         )}
         {...props}
@@ -148,7 +147,7 @@ const components = {
   th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <th
       className={cn(
-        "px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right",
+        "p-4 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right",
         className
       )}
       {...props}
@@ -157,7 +156,7 @@ const components = {
   td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <td
       className={cn(
-        "px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
+        "p-4 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
         className
       )}
       {...props}
@@ -193,7 +192,7 @@ const components = {
       <>
         <pre
           className={cn(
-            "mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-xl bg-zinc-950 py-4 dark:bg-zinc-900",
+            "mt-6 max-h-[650px] overflow-x-auto rounded-xl bg-zinc-950 py-4 dark:bg-zinc-900",
             className
           )}
           {...props}
@@ -213,6 +212,7 @@ const components = {
         "relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm",
         className
       )}
+      data-line-numbers
       {...props}
     />
   ),

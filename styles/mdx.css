@@ -32,6 +32,10 @@
   @apply px-2;
 }
 
+[data-rehype-pretty-code-figure] [data-line-numbers] {
+  counter-reset: line;
+}
+
 [data-rehype-pretty-code-figure] [data-line-numbers] > [data-line]::before {
   @apply text-xs text-zinc-50/40;
   counter-increment: line;
