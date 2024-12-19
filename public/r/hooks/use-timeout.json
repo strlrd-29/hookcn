@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "hooks/use-timeout.tsx",
-      "content": "import * as React from \"react\"\n\nimport { useIsomorphicLayoutEffect } from \"@/registry/default/hooks/use-isomorphic-layout-effect\"\n\nexport function useTimeout(callback: () => void, delay: number | null): void {\n  const savedCallback = React.useRef(callback)\n\n  useIsomorphicLayoutEffect(() => {\n    savedCallback.current = callback\n  }, [callback])\n\n  React.useEffect(() => {\n    if (!delay && delay !== 0) {\n      return\n    }\n\n    const id = setTimeout(() => {\n      savedCallback.current()\n    }, delay)\n\n    return () => {\n      clearTimeout(id)\n    }\n  }, [delay])\n}\n",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { useIsomorphicLayoutEffect } from \"@/registry/default/hooks/use-isomorphic-layout-effect\"\n\nexport function useTimeout(callback: () => void, delay: number | null): void {\n  const savedCallback = React.useRef(callback)\n\n  useIsomorphicLayoutEffect(() => {\n    savedCallback.current = callback\n  }, [callback])\n\n  React.useEffect(() => {\n    if (!delay && delay !== 0) {\n      return\n    }\n\n    const id = setTimeout(() => {\n      savedCallback.current()\n    }, delay)\n\n    return () => {\n      clearTimeout(id)\n    }\n  }, [delay])\n}\n",
       "type": "registry:hook",
       "target": ""
     }

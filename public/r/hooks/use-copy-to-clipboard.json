@@ -4,7 +4,7 @@
   "files": [
     {
       "path": "hooks/use-copy-to-clipboard.tsx",
-      "content": "import * as React from \"react\"\n\ntype CopiedValue = string | null\n\ntype CopyFn = (text: string) => Promise<boolean>\n\nexport function useCopyToClipboard(): [CopiedValue, CopyFn] {\n  const [copiedText, setCopiedText] = React.useState<CopiedValue>(null)\n\n  const copy: CopyFn = React.useCallback(async (text) => {\n    if (!navigator?.clipboard) {\n      console.warn(\"Clipboard not supported\")\n      return false\n    }\n\n    try {\n      await navigator.clipboard.writeText(text)\n      setCopiedText(text)\n      return true\n    } catch (error) {\n      console.warn(\"Copy failed\", error)\n      setCopiedText(null)\n      return false\n    }\n  }, [])\n\n  return [copiedText, copy]\n}\n",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\ntype CopiedValue = string | null\n\ntype CopyFn = (text: string) => Promise<boolean>\n\nexport function useCopyToClipboard(): [CopiedValue, CopyFn] {\n  const [copiedText, setCopiedText] = React.useState<CopiedValue>(null)\n\n  const copy: CopyFn = React.useCallback(async (text) => {\n    if (!navigator?.clipboard) {\n      console.warn(\"Clipboard not supported\")\n      return false\n    }\n\n    try {\n      await navigator.clipboard.writeText(text)\n      setCopiedText(text)\n      return true\n    } catch (error) {\n      console.warn(\"Copy failed\", error)\n      setCopiedText(null)\n      return false\n    }\n  }, [])\n\n  return [copiedText, copy]\n}\n",
       "type": "registry:hook",
       "target": ""
     }

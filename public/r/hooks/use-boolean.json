@@ -4,7 +4,7 @@
   "files": [
     {
       "path": "hooks/use-boolean.tsx",
-      "content": "import * as React from \"react\"\n\ntype UseBooleanReturn = {\n  value: boolean\n  setValue: React.Dispatch<React.SetStateAction<boolean>>\n  setTrue: () => void\n  setFalse: () => void\n  toggle: () => void\n}\n\nexport function useBoolean(defaultValue = false): UseBooleanReturn {\n  if (typeof defaultValue !== \"boolean\") {\n    throw new Error(\"defaultValue must be `true` or `false`\")\n  }\n  const [value, setValue] = React.useState(defaultValue)\n\n  const setTrue = React.useCallback(() => {\n    setValue(true)\n  }, [])\n\n  const setFalse = React.useCallback(() => {\n    setValue(false)\n  }, [])\n\n  const toggle = React.useCallback(() => {\n    setValue((x) => !x)\n  }, [])\n\n  return { value, setValue, setTrue, setFalse, toggle }\n}\n",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\ntype UseBooleanReturn = {\n  value: boolean\n  setValue: React.Dispatch<React.SetStateAction<boolean>>\n  setTrue: () => void\n  setFalse: () => void\n  toggle: () => void\n}\n\nexport function useBoolean(defaultValue = false): UseBooleanReturn {\n  if (typeof defaultValue !== \"boolean\") {\n    throw new Error(\"defaultValue must be `true` or `false`\")\n  }\n  const [value, setValue] = React.useState(defaultValue)\n\n  const setTrue = React.useCallback(() => {\n    setValue(true)\n  }, [])\n\n  const setFalse = React.useCallback(() => {\n    setValue(false)\n  }, [])\n\n  const toggle = React.useCallback(() => {\n    setValue((x) => !x)\n  }, [])\n\n  return { value, setValue, setTrue, setFalse, toggle }\n}\n",
       "type": "registry:hook",
       "target": ""
     }
