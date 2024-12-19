@@ -74,6 +74,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/hooks/use-interval",
           items: [],
         },
+        {
+          title: "Use Timeout",
+          href: "/docs/hooks/use-timeout",
+          items: [],
+        },
       ],
     },
   ],

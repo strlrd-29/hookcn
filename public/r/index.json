@@ -74,5 +74,18 @@
         "type": "registry:hook"
       }
     ]
+  },
+  {
+    "name": "use-timeout",
+    "type": "registry:hook",
+    "registryDependencies": [
+      "http://localhost:3000/r/use-isomorphic-layout-effect"
+    ],
+    "files": [
+      {
+        "path": "hooks/use-timeout.tsx",
+        "type": "registry:hook"
+      }
+    ]
   }
 ]

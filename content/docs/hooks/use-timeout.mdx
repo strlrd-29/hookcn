@@ -1,0 +1,80 @@
+---
+title: useTimeout
+description: Run a callback function after a specified delay with useTimeout, supporting dynamic updates and cleanup on unmount.
+---
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add https://hookcn.ouassim.tech/r/use-timeout
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="use-timeout" />
+
+<Step>You did it! Time for a virtual high-five! ✋</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx {5, 14}
+"use client"
+
+import * as React from "react"
+
+import { useTimeout } from "@/hooks/use-timeout"
+
+export function Component() {
+  const [visible, setVisible] = React.useState(true)
+
+  const hide = () => {
+    setVisible(false)
+  }
+
+  useTimeout(hide, 5000)
+
+  return (
+    <div>
+      <p>
+        {visible
+          ? "I'm visible for 5000ms"
+          : "You can no longer see this content"}
+      </p>
+    </div>
+  )
+}
+```
+
+## API Reference
+
+### Parameters
+
+| Name       | Type               | Description                                                                         |
+| ---------- | ------------------ | ----------------------------------------------------------------------------------- |
+| `callback` | `() => void`       | The function to be executed when the timeout elapses.                               |
+| `delay`    | `null` \| `number` | The duration (in milliseconds) for the timeout. Set to `null` to clear the timeout. |
+
+### Returns
+
+`void`
