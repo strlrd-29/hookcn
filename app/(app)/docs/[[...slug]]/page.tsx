@@ -14,6 +14,7 @@ import "~/styles/mdx.css"
 
 import { Contribute } from "~/components/contribute"
 import { DocGridPattern } from "~/components/doc-grid-pattern"
+import { ScrambleText } from "~/components/scramble-text"
 
 interface DocPageProps {
   params: {
@@ -98,7 +99,7 @@ export default async function DocPage(props: {
           <div className="mb-4 flex items-center space-x-1 text-sm leading-none text-muted-foreground">
             <div className="truncate">Docs</div>
             <ChevronRightIcon className="size-3.5" />
-            <div className="text-foreground">{doc.title}</div>
+            <ScrambleText text={doc.title} className="text-foreground" />
           </div>
           <div className="space-y-2">
             <h1 className={cn("scroll-m-20 text-3xl font-bold tracking-tight")}>

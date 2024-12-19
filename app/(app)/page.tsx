@@ -2,8 +2,8 @@ import Link from "next/link"
 
 import { cn } from "~/lib/utils"
 import { buttonVariants } from "~/components/ui/button"
+import { ChangingScrambleText } from "~/components/changing-scramble-text"
 import { GridPattern } from "~/components/grid-pattern"
-import { ScrambleText } from "~/components/scramble-text"
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
           <h1 className="text-4xl font-bold">
             use
             <span className="inline-block">
-              <ScrambleText />
+              <ChangingScrambleText />
             </span>
           </h1>
           <p className="max-w-2xl text-lg text-muted-foreground">
