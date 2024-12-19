@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Balancer from "react-wrap-balancer"
 
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
@@ -10,16 +11,11 @@ export default function Home() {
     <div className="relative grid h-full flex-1 place-items-center overflow-hidden">
       <div className="z-10 flex flex-col items-center space-y-6">
         <div className="space-y-1 text-center">
-          <h1 className="text-4xl font-bold">
-            use
-            <span className="inline-block">
-              <ChangingScrambleText />
-            </span>
-          </h1>
-          <p className="max-w-2xl text-lg text-muted-foreground">
+          <ChangingScrambleText />
+          <Balancer className="max-w-2xl px-4 text-sm text-muted-foreground md:text-lg">
             A collection of reusable react hooks that you can easily copy and
             paste into your apps or add directly through the shadcn CLI.
-          </p>
+          </Balancer>
         </div>
         <Link href="/docs" className={cn(buttonVariants())}>
           Explore the docs
@@ -27,6 +23,11 @@ export default function Home() {
       </div>
       <GridPattern
         squares={[
+          [5, 12],
+          [6, 16],
+          [3, 20],
+          [8, 23],
+          [2, 25],
           [15, 15],
           [17, 16],
           [20, 20],

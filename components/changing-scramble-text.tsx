@@ -2,13 +2,15 @@
 
 import React from "react"
 
+import { docsConfig } from "@/config/docs"
 import { ScrambleText } from "@/components/scramble-text"
 
 export function ChangingScrambleText() {
-  const hooks = React.useMemo(
-    () => ["Boolean", "LocalStorage", "ClickOutside"],
-    []
-  )
+  const hooks = React.useMemo(() => {
+    return docsConfig.sidebarNav
+      .filter((nav) => nav.title.toLocaleLowerCase() === "hooks")[0]
+      .items.map((hook) => hook.title)
+  }, [])
 
   function getRandomInt(min: number, max: number) {
     return Math.floor(Math.random() * (max - min) + min)
@@ -30,5 +32,10 @@ export function ChangingScrambleText() {
     return () => clearInterval(textInterval)
   }, [getRandomText])
 
-  return <ScrambleText text={text} />
+  return (
+    <ScrambleText
+      text={text}
+      className="h-7 text-2xl font-bold md:h-10 md:text-4xl"
+    />
+  )
 }

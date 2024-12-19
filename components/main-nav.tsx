@@ -29,7 +29,7 @@ export function MainNav() {
           Documentation
         </Link>
         <Link
-          href="/docs/hooks"
+          href="/docs/hooks/use-boolean"
           className={cn(
             "transition-colors hover:text-foreground/80",
             pathname.startsWith("/docs/hooks")
