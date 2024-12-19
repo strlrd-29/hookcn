@@ -17,7 +17,7 @@ export default function Home() {
             paste into your apps or add directly through the shadcn CLI.
           </Balancer>
         </div>
-        <Link href="/docs" className={cn(buttonVariants())}>
+        <Link href="/docs/hooks/use-boolean" className={cn(buttonVariants())}>
           Explore the docs
         </Link>
       </div>
