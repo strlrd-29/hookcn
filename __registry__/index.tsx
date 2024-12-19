@@ -20,4 +20,18 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import("@/registry/hooks/use-boolean.tsx")),
     source: "",
   },
+  "use-toggle": {
+    name: "use-toggle",
+    type: "registry:hook",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "registry/hooks/use-toggle.tsx",
+        type: "registry:hook",
+        target: "",
+      },
+    ],
+    component: React.lazy(() => import("@/registry/hooks/use-toggle.tsx")),
+    source: "",
+  },
 }

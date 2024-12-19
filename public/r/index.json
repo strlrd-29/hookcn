@@ -8,5 +8,15 @@
         "type": "registry:hook"
       }
     ]
+  },
+  {
+    "name": "use-toggle",
+    "type": "registry:hook",
+    "files": [
+      {
+        "path": "hooks/use-toggle.tsx",
+        "type": "registry:hook"
+      }
+    ]
   }
 ]

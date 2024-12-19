@@ -44,6 +44,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/hooks/use-boolean",
           items: [],
         },
+        {
+          title: "Use Toggle",
+          href: "/docs/hooks/use-toggle",
+          items: [],
+        },
       ],
     },
   ],

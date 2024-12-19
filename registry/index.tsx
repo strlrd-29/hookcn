@@ -11,4 +11,14 @@ export const registry: Registry = [
       },
     ],
   },
+  {
+    name: "use-toggle",
+    type: "registry:hook",
+    files: [
+      {
+        path: "hooks/use-toggle.tsx",
+        type: "registry:hook",
+      },
+    ],
+  },
 ]

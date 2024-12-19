@@ -1,0 +1,12 @@
+{
+  "name": "use-toggle",
+  "type": "registry:hook",
+  "files": [
+    {
+      "path": "hooks/use-toggle.tsx",
+      "content": "import * as React from \"react\"\n\nexport function useToggle(\n  defaultValue?: boolean\n): [boolean, () => void, React.Dispatch<React.SetStateAction<boolean>>] {\n  const [value, setValue] = React.useState(!!defaultValue)\n\n  const toggle = React.useCallback(() => {\n    setValue((x) => !x)\n  }, [])\n\n  return [value, toggle, setValue]\n}\n",
+      "type": "registry:hook",
+      "target": ""
+    }
+  ]
+}

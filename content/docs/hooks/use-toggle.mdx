@@ -1,0 +1,92 @@
+---
+title: useToggle
+description: Easily manage a boolean state with useToggle.
+---
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add https://hookcn.ouassim.tech/r/use-toggle
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="use-toggle" />
+
+<Step>You did it! Time for a virtual high-five! ✋</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx {1, 4}
+import { useToggle } from "@/hooks/use-toggle"
+
+export function Component() {
+  const [value, toggle, setValue] = useToggle()
+
+  // Just an example to use "setValue"
+  const customToggle = () => {
+    setValue((x: boolean) => !x)
+  }
+
+  return (
+    <>
+      <p>
+        Value is <code>{value.toString()}</code>
+      </p>
+      <button
+        onClick={() => {
+          setValue(true)
+        }}
+      >
+        set true
+      </button>
+      <button
+        onClick={() => {
+          setValue(false)
+        }}
+      >
+        set false
+      </button>
+      <button onClick={toggle}>toggle</button>
+      <button onClick={customToggle}>custom toggle</button>
+    </>
+  )
+}
+```
+
+## API Reference
+
+### Parameters
+
+| Name            | Type      | Description                             |
+| --------------- | --------- | --------------------------------------- |
+| `defaultValue?` | `boolean` | The initial value for the toggle state. |
+
+### Returns
+
+| Name       | Type                                | Description                                |
+| ---------- | ----------------------------------- | ------------------------------------------ |
+| `value`    | `boolean`                           | The current toggle state value.            |
+| `toggle`   | `() => void`                        | Function to toggle the state.              |
+| `setValue` | `Dispatch<SetStateAction<boolean>>` | Function to set the toggle state directly. |
