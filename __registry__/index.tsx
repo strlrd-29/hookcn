@@ -34,4 +34,20 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import("@/registry/hooks/use-toggle.tsx")),
     source: "",
   },
+  "use-copy-to-clipboard": {
+    name: "use-copy-to-clipboard",
+    type: "registry:hook",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "registry/hooks/use-copy-to-clipboard.tsx",
+        type: "registry:hook",
+        target: "",
+      },
+    ],
+    component: React.lazy(
+      () => import("@/registry/hooks/use-copy-to-clipboard.tsx")
+    ),
+    source: "",
+  },
 }

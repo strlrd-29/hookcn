@@ -85,8 +85,10 @@ export function Component() {
 
 ### Returns
 
-| Name       | Type                                | Description                                |
-| ---------- | ----------------------------------- | ------------------------------------------ |
-| `value`    | `boolean`                           | The current toggle state value.            |
-| `toggle`   | `() => void`                        | Function to toggle the state.              |
-| `setValue` | `Dispatch<SetStateAction<boolean>>` | Function to set the toggle state directly. |
+The `useToggle` hook returns a tuple with the following elements:
+
+| Index | Type                                | Description                                |
+| ----- | ----------------------------------- | ------------------------------------------ |
+| `0`   | `boolean`                           | The current toggle state value.            |
+| `1`   | `() => void`                        | Function to toggle the state.              |
+| `2`   | `Dispatch<SetStateAction<boolean>>` | Function to set the toggle state directly. |

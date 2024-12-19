@@ -21,4 +21,14 @@ export const registry: Registry = [
       },
     ],
   },
+  {
+    name: "use-copy-to-clipboard",
+    type: "registry:hook",
+    files: [
+      {
+        path: "hooks/use-copy-to-clipboard.tsx",
+        type: "registry:hook",
+      },
+    ],
+  },
 ]

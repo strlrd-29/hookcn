@@ -49,6 +49,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/hooks/use-toggle",
           items: [],
         },
+        {
+          title: "Use CopyToClipboard",
+          href: "/docs/hooks/use-copy-to-clipboard",
+          items: [],
+        },
       ],
     },
   ],
