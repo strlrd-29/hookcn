@@ -1,0 +1,66 @@
+---
+title: useIsomorphicLayoutEffect
+description: Custom hook that uses either `useLayoutEffect` or `useEffect` based on the environment (client-side or server-side).
+---
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add https://hookcn.ouassim.tech/r/use-isomorphic-layout-effect
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="use-isomorphic-layout-effect" />
+
+<Step>You did it! Time for a virtual high-five! ✋</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx {1, 4-7}
+import { useIsomorphicLayoutEffect } from "@/hooks/isomorphic-layout-effect"
+
+export function Component() {
+  useIsomorphicLayoutEffect(() => {
+    console.log(
+      "In the browser, I'm an `useLayoutEffect`, but in SSR, I'm an `useEffect`."
+    )
+  }, [])
+
+  return <p>Hello, world</p>
+}
+```
+
+## API Reference
+
+### Parameters
+
+| Name     | Type             | Description                         |
+| -------- | ---------------- | ----------------------------------- |
+| `effect` | `EffectCallback` | The effect function to be executed. |
+| `deps?`  | `DependencyList` | -                                   |
+
+### Returns
+
+`void`

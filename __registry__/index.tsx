@@ -80,4 +80,20 @@ export const Index: Record<string, any> = {
     ),
     source: "",
   },
+  "use-isomorphic-layout-effect": {
+    name: "use-isomorphic-layout-effect",
+    type: "registry:hook",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "registry/hooks/use-isomorphic-layout-effect.tsx",
+        type: "registry:hook",
+        target: "",
+      },
+    ],
+    component: React.lazy(
+      () => import("@/registry/hooks/use-isomorphic-layout-effect.tsx")
+    ),
+    source: "",
+  },
 }

@@ -1,0 +1,12 @@
+{
+  "name": "use-isomorphic-layout-effect",
+  "type": "registry:hook",
+  "files": [
+    {
+      "path": "hooks/use-isomorphic-layout-effect.tsx",
+      "content": "import * as React from \"react\"\n\nexport const useIsomorphicLayoutEffect =\n  typeof window !== \"undefined\" ? React.useLayoutEffect : React.useEffect\n",
+      "type": "registry:hook",
+      "target": ""
+    }
+  ]
+}

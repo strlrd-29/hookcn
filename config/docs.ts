@@ -64,6 +64,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/hooks/use-debounce-callback",
           items: [],
         },
+        {
+          title: "Use IsomorphicLayoutEffect",
+          href: "/docs/hooks/use-isomorphic-layout-effect",
+          items: [],
+        },
       ],
     },
   ],

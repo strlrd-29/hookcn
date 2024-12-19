@@ -54,4 +54,14 @@ export const registry: Registry = [
       },
     ],
   },
+  {
+    name: "use-isomorphic-layout-effect",
+    type: "registry:hook",
+    files: [
+      {
+        path: "hooks/use-isomorphic-layout-effect.tsx",
+        type: "registry:hook",
+      },
+    ],
+  },
 ]
