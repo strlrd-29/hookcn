@@ -43,14 +43,14 @@ export const Index: Record<string, any> = {`
     const type = item.type.split(":")[1]
     const sourceFilename = ""
 
-    let componentPath = `~/registry/${type}/${item.name}`
+    let componentPath = `@/registry/${type}/${item.name}`
 
     if (item.files) {
       const files = item.files.map((file) =>
         typeof file === "string" ? { type: "registry:page", path: file } : file
       )
       if (files?.length) {
-        componentPath = `~/registry/${files[0].path}`
+        componentPath = `@/registry/${files[0].path}`
       }
     }
 

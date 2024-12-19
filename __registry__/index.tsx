@@ -17,7 +17,7 @@ export const Index: Record<string, any> = {
         target: "",
       },
     ],
-    component: React.lazy(() => import("~/registry/hooks/use-boolean.tsx")),
+    component: React.lazy(() => import("@/registry/hooks/use-boolean.tsx")),
     source: "",
   },
 }
