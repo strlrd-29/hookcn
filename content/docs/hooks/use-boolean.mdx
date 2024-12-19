@@ -35,3 +35,48 @@ npx shadcn@latest add https://hookcn.ouassim.tech/r/use-boolean
 </TabsContent>
 
 </Tabs>
+
+## Usage
+
+```tsx {1, 4, 8}
+import { useBoolean } from "@/hooks/use-boolean"
+
+export function Component() {
+  const { value, setValue, setTrue, setFalse, toggle } = useBoolean(false)
+
+  // Just an example to use "setValue"
+  const customToggle = () => {
+    setValue((x: boolean) => !x)
+  }
+
+  return (
+    <>
+      <p>
+        Value is <code>{value.toString()}</code>
+      </p>
+      <button onClick={setTrue}>set true</button>
+      <button onClick={setFalse}>set false</button>
+      <button onClick={toggle}>toggle</button>
+      <button onClick={customToggle}>custom toggle</button>
+    </>
+  )
+}
+```
+
+## API Reference
+
+### Parameters
+
+| Name            | Type      | Description                                                   |
+| --------------- | --------- | ------------------------------------------------------------- |
+| `defaultValue?` | `boolean` | The initial value for the boolean state (default is `false`). |
+
+### Returns
+
+| Name       | Type                                | Description                                   |
+| ---------- | ----------------------------------- | --------------------------------------------- |
+| `setFalse` | `() => void`                        | Function to set the boolean state to `false`. |
+| `setTrue`  | `() => void`                        | Function to set the boolean state to `true`.  |
+| `setValue` | `Dispatch<SetStateAction<boolean>>` | Function to set the boolean state directly.   |
+| `toggle`   | `() => void`                        | Function to toggle the boolean state.         |
+| `value`    | `boolean`                           | The current boolean state value.              |
