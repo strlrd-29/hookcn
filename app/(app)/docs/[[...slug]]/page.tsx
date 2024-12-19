@@ -99,12 +99,15 @@ export default async function DocPage(props: {
           <div className="mb-4 flex items-center space-x-1 text-sm leading-none text-muted-foreground">
             <div className="truncate">Docs</div>
             <ChevronRightIcon className="size-3.5" />
-            <ScrambleText text={doc.title} className="text-foreground" />
+            <div className="text-foreground">{doc.title}</div>
           </div>
           <div className="space-y-2">
-            <h1 className={cn("scroll-m-20 text-3xl font-bold tracking-tight")}>
-              {doc.title}
-            </h1>
+            <ScrambleText
+              text={doc.title}
+              className={cn(
+                "h-10 w-fit scroll-m-20 text-3xl font-bold tracking-tight"
+              )}
+            />
             {doc.description && (
               <p className="text-base text-muted-foreground">
                 <Balancer>{doc.description}</Balancer>

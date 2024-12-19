@@ -20,5 +20,5 @@ export function ScrambleText({ text, className }: ScrambleTextProps) {
     replay()
   }, [replay])
 
-  return <span ref={ref} className={className} onMouseEnter={onMouseEnter} />
+  return <h1 ref={ref} className={className} onMouseEnter={onMouseEnter} />
 }
