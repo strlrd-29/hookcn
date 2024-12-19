@@ -1,12 +1,13 @@
 import * as React from "react"
 import Link from "next/link"
-import { getGithubFileUrl, getGitHubIssueUrl } from "@/lib/github"
 import {
   BugIcon,
   LightbulbIcon,
   PencilIcon,
   type LucideProps,
 } from "lucide-react"
+
+import { getGithubFileUrl, getGitHubIssueUrl } from "@/lib/github"
 
 interface ContributeProps {
   slug: string

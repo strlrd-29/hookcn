@@ -1,8 +1,9 @@
 import Link from "next/link"
+
+import { cn } from "@/lib/utils"
+import { buttonVariants } from "@/components/ui/button"
 import { ChangingScrambleText } from "@/components/changing-scramble-text"
 import { GridPattern } from "@/components/grid-pattern"
-import { buttonVariants } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
 
 export default function Home() {
   return (

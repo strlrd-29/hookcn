@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react"
+
 import { ScrambleText } from "@/components/scramble-text"
 
 export function ChangingScrambleText() {

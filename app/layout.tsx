@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next"
-import { TooltipProvider } from "@/components/ui/tooltip"
+import { ThemeProvider } from "next-themes"
+
 import { META_THEME_COLORS, siteConfig } from "@/config/site"
 import { fontMono, fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import { ThemeProvider } from "next-themes"
+import { TooltipProvider } from "@/components/ui/tooltip"
 
 import "@/styles/globals.css"
 

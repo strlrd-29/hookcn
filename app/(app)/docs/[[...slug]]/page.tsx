@@ -1,13 +1,14 @@
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
-import { Mdx } from "@/components/mdx-components"
-import { DashboardTableOfContents } from "@/components/toc"
-import { siteConfig } from "@/config/site"
-import { getTableOfContents } from "@/lib/toc"
-import { absoluteUrl, cn } from "@/lib/utils"
 import { allDocs } from "contentlayer/generated"
 import { ChevronRightIcon } from "lucide-react"
 import { Balancer } from "react-wrap-balancer"
+
+import { siteConfig } from "@/config/site"
+import { getTableOfContents } from "@/lib/toc"
+import { absoluteUrl, cn } from "@/lib/utils"
+import { Mdx } from "@/components/mdx-components"
+import { DashboardTableOfContents } from "@/components/toc"
 
 import "@/styles/mdx.css"
 

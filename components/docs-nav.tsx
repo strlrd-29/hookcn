@@ -2,9 +2,10 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+
+import { SidebarNavItem } from "@/types/nav"
 import { type DocsConfig } from "@/config/docs"
 import { cn } from "@/lib/utils"
-import { SidebarNavItem } from "@/types/nav"
 
 export function DocsNav({ config }: { config: DocsConfig }) {
   const pathname = usePathname()

@@ -2,11 +2,10 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { Callout } from "@/components/callout"
-import { CodeBlockCommand } from "@/components/code-block-command"
-import { CodeBlockWrapper } from "@/components/code-block-wrapper"
-import { ComponentSource } from "@/components/component-source"
-import { CopyButton } from "@/components/copy-button"
+import { useMDXComponent } from "next-contentlayer2/hooks"
+
+import type { NpmCommands } from "@/types/unist"
+import { cn } from "@/lib/utils"
 import {
   Accordion,
   AccordionContent,
@@ -15,9 +14,11 @@ import {
 } from "@/components/ui/accordion"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { cn } from "@/lib/utils"
-import type { NpmCommands } from "@/types/unist"
-import { useMDXComponent } from "next-contentlayer2/hooks"
+import { Callout } from "@/components/callout"
+import { CodeBlockCommand } from "@/components/code-block-command"
+import { CodeBlockWrapper } from "@/components/code-block-wrapper"
+import { ComponentSource } from "@/components/component-source"
+import { CopyButton } from "@/components/copy-button"
 
 interface MdxProps {
   code: string

@@ -1,5 +1,3 @@
-import { rehypeComponent } from "@/lib/rehype-component"
-import { rehypeNpmCommand } from "@/lib/rehype-npm-command"
 import { getHighlighter } from "@shikijs/compat"
 import {
   defineDocumentType,
@@ -10,6 +8,9 @@ import rehypePrettyCode from "rehype-pretty-code"
 import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
 import { visit } from "unist-util-visit"
+
+import { rehypeComponent } from "@/lib/rehype-component"
+import { rehypeNpmCommand } from "@/lib/rehype-npm-command"
 
 const computedFields: ComputedFields = {
   slug: {

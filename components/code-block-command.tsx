@@ -1,11 +1,12 @@
 "use client"
 
 import * as React from "react"
+import { CheckIcon, ClipboardIcon } from "lucide-react"
+
+import { NpmCommands } from "@/types/unist"
+import { useConfig } from "@/hooks/use-config"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { useConfig } from "@/hooks/use-config"
-import { NpmCommands } from "@/types/unist"
-import { CheckIcon, ClipboardIcon } from "lucide-react"
 
 export function CodeBlockCommand({
   __npmCommand__,

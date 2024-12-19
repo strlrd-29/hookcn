@@ -3,12 +3,13 @@
 import * as React from "react"
 import Link, { LinkProps } from "next/link"
 import { useRouter } from "next/navigation"
+
+import { docsConfig } from "@/config/docs"
+import { cn } from "@/lib/utils"
+import { useMetaColor } from "@/hooks/use-meta-color"
 import { Button } from "@/components/ui/button"
 import { DialogTitle } from "@/components/ui/dialog"
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer"
-import { docsConfig } from "@/config/docs"
-import { useMetaColor } from "@/hooks/use-meta-color"
-import { cn } from "@/lib/utils"
 
 export function MobileNav() {
   const [open, setOpen] = React.useState(false)

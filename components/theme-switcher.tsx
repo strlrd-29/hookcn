@@ -1,11 +1,12 @@
 "use client"
 
 import * as React from "react"
-import { Button } from "@/components/ui/button"
-import { META_THEME_COLORS } from "@/config/site"
-import { useMetaColor } from "@/hooks/use-meta-color"
 import { MoonIcon, SunIcon } from "lucide-react"
 import { useTheme } from "next-themes"
+
+import { META_THEME_COLORS } from "@/config/site"
+import { useMetaColor } from "@/hooks/use-meta-color"
+import { Button } from "@/components/ui/button"
 
 export function ThemeSwitcher() {
   const { setTheme, resolvedTheme } = useTheme()

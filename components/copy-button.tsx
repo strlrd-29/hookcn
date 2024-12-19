@@ -1,9 +1,10 @@
 "use client"
 
 import * as React from "react"
-import { Button, type ButtonProps } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
 import { CheckIcon, ClipboardIcon } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+import { Button, type ButtonProps } from "@/components/ui/button"
 
 interface CopyButtonProps extends ButtonProps {
   value: string

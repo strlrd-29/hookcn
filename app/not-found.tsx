@@ -2,8 +2,9 @@
 
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { Button, buttonVariants } from "@/components/ui/button"
 import { AlertTriangleIcon, ChevronLeftIcon, HouseIcon } from "lucide-react"
+
+import { Button, buttonVariants } from "@/components/ui/button"
 
 export default function NotFound() {
   const router = useRouter()

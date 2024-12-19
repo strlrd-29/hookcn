@@ -2,9 +2,10 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { AnchorIcon } from "lucide-react"
+
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
-import { AnchorIcon } from "lucide-react"
 
 export function MainNav() {
   const pathname = usePathname()

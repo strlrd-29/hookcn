@@ -2,9 +2,6 @@
 
 import * as React from "react"
 import { useRouter } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { docsConfig } from "@/config/docs"
-import { cn } from "@/lib/utils"
 import type { DialogProps } from "@radix-ui/react-dialog"
 import {
   CircleIcon,
@@ -14,6 +11,10 @@ import {
   SunIcon,
 } from "lucide-react"
 import { useTheme } from "next-themes"
+
+import { docsConfig } from "@/config/docs"
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
 
 import {
   CommandDialog,
