@@ -90,4 +90,14 @@ export const registry: Registry = [
       },
     ],
   },
+  {
+    name: "use-counter",
+    type: "registry:hook",
+    files: [
+      {
+        path: "hooks/use-counter.tsx",
+        type: "registry:hook",
+      },
+    ],
+  },
 ]

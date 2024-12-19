@@ -79,6 +79,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/hooks/use-timeout",
           items: [],
         },
+        {
+          title: "Use Counter",
+          href: "/docs/hooks/use-counter",
+          items: [],
+        },
       ],
     },
   ],

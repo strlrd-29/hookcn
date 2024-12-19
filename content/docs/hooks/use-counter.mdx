@@ -1,0 +1,81 @@
+---
+title: useCounter
+description: Manage a numeric state with useCounter, offering functions to increment, decrement, reset, and set a custom value.
+---
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add https://hookcn.ouassim.tech/r/use-counter
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="use-counter" />
+
+<Step>You did it! Time for a virtual high-five! ✋</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx {3, 6}
+"use client"
+
+import { useCounter } from "@/hooks/use-counter"
+
+export function Component() {
+  const { count, setCount, increment, decrement, reset } = useCounter(0)
+
+  const multiplyBy2 = () => {
+    setCount((x: number) => x * 2)
+  }
+
+  return (
+    <>
+      <p>Count is {count}</p>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+      <button onClick={reset}>Reset</button>
+      <button onClick={multiplyBy2}>Multiply by 2</button>
+    </>
+  )
+}
+```
+
+## API Reference
+
+### Parameters
+
+| Name            | Type     | Description                        |
+| --------------- | -------- | ---------------------------------- |
+| `initialValue?` | `number` | The initial value for the counter. |
+
+### Returns
+
+| Name        | Type                               | Description                                         |
+| ----------- | ---------------------------------- | --------------------------------------------------- |
+| `count`     | `number`                           | The current count value.                            |
+| `decrement` | `() => void`                       | Function to decrement the counter by 1.             |
+| `increment` | `() => void`                       | Function to increment the counter by 1.             |
+| `reset`     | `() => void`                       | Function to reset the counter to its initial value. |
+| `setCount`  | `Dispatch<SetStateAction<number>>` | Function to set a specific value to the counter.    |

@@ -128,4 +128,18 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import("@/registry/hooks/use-timeout.tsx")),
     source: "",
   },
+  "use-counter": {
+    name: "use-counter",
+    type: "registry:hook",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "registry/hooks/use-counter.tsx",
+        type: "registry:hook",
+        target: "",
+      },
+    ],
+    component: React.lazy(() => import("@/registry/hooks/use-counter.tsx")),
+    source: "",
+  },
 }
