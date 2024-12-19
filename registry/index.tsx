@@ -41,4 +41,17 @@ export const registry: Registry = [
       },
     ],
   },
+  {
+    name: "use-debounce-callback",
+    type: "registry:hook",
+    registryDependencies: ["http://localhost:3000/r/use-unmount"],
+    dependencies: ["lodash.debounce"],
+    devDependencies: ["@types/lodash.debounce"],
+    files: [
+      {
+        path: "hooks/use-debounce-callback.tsx",
+        type: "registry:hook",
+      },
+    ],
+  },
 ]

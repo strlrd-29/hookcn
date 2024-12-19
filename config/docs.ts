@@ -59,6 +59,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/hooks/use-unmount",
           items: [],
         },
+        {
+          title: "Use DebounceCallback",
+          href: "/docs/hooks/use-debounce-callback",
+          items: [],
+        },
       ],
     },
   ],

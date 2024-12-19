@@ -1,0 +1,73 @@
+---
+title: useDebounceCallback
+description: Delay function execution with useDebounceCallback, providing options for canceling, flushing, and checking if a call is pending.
+---
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add https://hookcn.ouassim.tech/r/use-debounce-callback
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="use-debounce-callback" />
+
+<Step>You did it! Time for a virtual high-five! ✋</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx {5, 10}
+"use client"
+
+import * as React from "react"
+
+import { useDebounceCallback } from "@/hooks/use-debounce-callback"
+
+export function Component() {
+  const [value, setValue] = React.useState("")
+
+  const debounced = useDebounceCallback(setValue, 500)
+
+  return (
+    <div>
+      <p>Debounced value: {value}</p>
+
+      <input
+        type="text"
+        defaultValue={value}
+        onChange={(event) => debounced(event.target.value)}
+      />
+    </div>
+  )
+}
+```
+
+## API Reference
+
+### Parameters
+
+| Name   | Type         | Description                                     |
+| ------ | ------------ | ----------------------------------------------- |
+| `func` | `() => void` | The cleanup function to be executed on unmount. |

@@ -64,4 +64,20 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import("@/registry/hooks/use-unmount.tsx")),
     source: "",
   },
+  "use-debounce-callback": {
+    name: "use-debounce-callback",
+    type: "registry:hook",
+    registryDependencies: ["http://localhost:3000/r/use-unmount"],
+    files: [
+      {
+        path: "registry/hooks/use-debounce-callback.tsx",
+        type: "registry:hook",
+        target: "",
+      },
+    ],
+    component: React.lazy(
+      () => import("@/registry/hooks/use-debounce-callback.tsx")
+    ),
+    source: "",
+  },
 }
