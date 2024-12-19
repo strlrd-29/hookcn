@@ -1,0 +1,99 @@
+---
+title: useInterval
+description: Execute a callback function at specified intervals with useInterval, supporting dynamic delays and cleanup on unmount.
+---
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add https://hookcn.ouassim.tech/r/use-interval
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="use-interval" />
+
+<Step>You did it! Time for a virtual high-five! ✋</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx {5, 12-17}
+"use client"
+
+import * as React from "react"
+
+import { useInterval } from "@/hooks/use-interval"
+
+export function Component() {
+  const [count, setCount] = React.useState<number>(0)
+  const [delay, setDelay] = React.useState<number>(1000)
+  const [isPlaying, setPlaying] = React.useState<boolean>(false)
+
+  useInterval(
+    () => {
+      setCount(count + 1)
+    },
+    isPlaying ? delay : null
+  )
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setDelay(Number(event.target.value))
+  }
+
+  return (
+    <>
+      <h1>{count}</h1>
+      <button
+        onClick={() => {
+          setPlaying(!isPlaying)
+        }}
+      >
+        {isPlaying ? "pause" : "play"}
+      </button>
+      <p>
+        <label htmlFor="delay">Delay: </label>
+        <input
+          type="number"
+          name="delay"
+          onChange={handleChange}
+          value={delay}
+        />
+      </p>
+    </>
+  )
+}
+```
+
+## API Reference
+
+### Parameters
+
+| Name       | Type               | Description                                                                                           |
+| ---------- | ------------------ | ----------------------------------------------------------------------------------------------------- |
+| `callback` | `() => void`       | The function to be invoked at each interval.                                                          |
+| `delay`    | `null` \| `number` | The time, in milliseconds, between each invocation of the callback. Use `null` to clear the interval. |
+
+### Returns
+
+`void`

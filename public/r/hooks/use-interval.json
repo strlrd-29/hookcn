@@ -1,0 +1,15 @@
+{
+  "name": "use-interval",
+  "type": "registry:hook",
+  "registryDependencies": [
+    "http://localhost:3000/r/use-isomorphic-layout-effect"
+  ],
+  "files": [
+    {
+      "path": "hooks/use-interval.tsx",
+      "content": "import * as React from \"react\"\n\nimport { useIsomorphicLayoutEffect } from \"@/registry/default/hooks/use-isomorphic-layout-effect\"\n\nexport function useInterval(callback: () => void, delay: number | null) {\n  const savedCallback = React.useRef(callback)\n\n  useIsomorphicLayoutEffect(() => {\n    savedCallback.current = callback\n  }, [callback])\n\n  React.useEffect(() => {\n    if (delay === null) {\n      return\n    }\n\n    const id = setInterval(() => {\n      savedCallback.current()\n    }, delay)\n\n    return () => {\n      clearInterval(id)\n    }\n  }, [delay])\n}\n",
+      "type": "registry:hook",
+      "target": ""
+    }
+  ]
+}

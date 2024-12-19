@@ -69,6 +69,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/hooks/use-isomorphic-layout-effect",
           items: [],
         },
+        {
+          title: "Use Interval",
+          href: "/docs/hooks/use-interval",
+          items: [],
+        },
       ],
     },
   ],

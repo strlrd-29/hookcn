@@ -96,4 +96,20 @@ export const Index: Record<string, any> = {
     ),
     source: "",
   },
+  "use-interval": {
+    name: "use-interval",
+    type: "registry:hook",
+    registryDependencies: [
+      "http://localhost:3000/r/use-isomorphic-layout-effect",
+    ],
+    files: [
+      {
+        path: "registry/hooks/use-interval.tsx",
+        type: "registry:hook",
+        target: "",
+      },
+    ],
+    component: React.lazy(() => import("@/registry/hooks/use-interval.tsx")),
+    source: "",
+  },
 }
