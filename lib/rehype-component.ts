@@ -54,7 +54,7 @@ export function rehypeComponent() {
           // Replace imports.
           // TODO: Use @swc/core and a visitor to replace this.
           // For now a simple regex should do.
-          source = source.replaceAll(`@/registry/hooks`, "@/hooks/")
+          source = source.replaceAll(`@/registry/hooks/`, "@/hooks/")
           source = source.replaceAll("export default", "export")
 
           // Add code as children so that rehype can take over at build time.
