@@ -1,12 +1,12 @@
 export const siteConfig = {
   name: "hookcn",
-  url: "https://hooks.ouassim.tech",
-  ogImage: "https://hooks.ouassim.tech/og.jpg",
+  url: "https://hookcn.ouassim.tech",
+  ogImage: "https://hookcn.ouassim.tech/og.jpg",
   description:
     "A collection of reusable react hooks that you can copy and paste into your apps.",
   links: {
     twitter: "https://twitter.com/strlrd29",
-    github: "https://github.com/strlrd-29/hooks",
+    github: "https://github.com/strlrd-29/hookcn",
   },
 }
 
