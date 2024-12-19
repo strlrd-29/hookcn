@@ -43,14 +43,14 @@ export const Index: Record<string, any> = {`
     const type = item.type.split(":")[1]
     const sourceFilename = ""
 
-    let componentPath = `@/registry/${type}/${item.name}`
+    let hookPath = `@/registry/${type}/${item.name}`
 
     if (item.files) {
       const files = item.files.map((file) =>
         typeof file === "string" ? { type: "registry:page", path: file } : file
       )
       if (files?.length) {
-        componentPath = `@/registry/${files[0].path}`
+        hookPath = `@/registry/${files[0].path}`
       }
     }
 
@@ -70,7 +70,7 @@ export const Index: Record<string, any> = {`
       target: "${file.target ?? ""}"
     }`
     })}],
-    component: React.lazy(() => import("${componentPath}")),
+    component: React.lazy(() => import("${hookPath}")),
     source: "${sourceFilename}",
   },`
   }
@@ -154,7 +154,10 @@ async function buildHooks(registry: Registry) {
           return {
             path: file.path,
             type: "registry:hook",
-            content: sourceFile.getText(),
+            // the replace is because of the shadcn cli requiring /[style]/[name]
+            content: sourceFile
+              .getText()
+              .replaceAll("@/registry", "@/registry/default"),
             target,
           }
         })
