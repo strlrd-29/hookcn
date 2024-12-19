@@ -50,4 +50,18 @@ export const Index: Record<string, any> = {
     ),
     source: "",
   },
+  "use-unmount": {
+    name: "use-unmount",
+    type: "registry:hook",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "registry/hooks/use-unmount.tsx",
+        type: "registry:hook",
+        target: "",
+      },
+    ],
+    component: React.lazy(() => import("@/registry/hooks/use-unmount.tsx")),
+    source: "",
+  },
 }

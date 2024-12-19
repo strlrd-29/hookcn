@@ -31,4 +31,14 @@ export const registry: Registry = [
       },
     ],
   },
+  {
+    name: "use-unmount",
+    type: "registry:hook",
+    files: [
+      {
+        path: "hooks/use-unmount.tsx",
+        type: "registry:hook",
+      },
+    ],
+  },
 ]

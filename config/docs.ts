@@ -54,6 +54,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/hooks/use-copy-to-clipboard",
           items: [],
         },
+        {
+          title: "Use Unmount",
+          href: "/docs/hooks/use-unmount",
+          items: [],
+        },
       ],
     },
   ],

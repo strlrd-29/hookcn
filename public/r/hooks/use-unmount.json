@@ -1,0 +1,12 @@
+{
+  "name": "use-unmount",
+  "type": "registry:hook",
+  "files": [
+    {
+      "path": "hooks/use-unmount.tsx",
+      "content": "import * as React from \"react\"\n\nexport function useUnmount(func: () => void) {\n  const funcRef = React.useRef(func)\n\n  funcRef.current = func\n\n  React.useEffect(\n    () => () => {\n      funcRef.current()\n    },\n    []\n  )\n}\n",
+      "type": "registry:hook",
+      "target": ""
+    }
+  ]
+}
