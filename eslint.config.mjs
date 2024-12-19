@@ -28,6 +28,7 @@ const eslintConfig = [
       ],
       "@typescript-eslint/no-require-imports": "off",
       "tailwindcss/no-custom-classname": "off",
+      "@typescript-eslint/no-explicit-any": "off",
       "tailwindcss/classnames-order": "error",
     },
   },
