@@ -15,15 +15,14 @@ import { useTheme } from "next-themes"
 import { docsConfig } from "@/config/docs"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-
 import {
   CommandDialog,
   CommandGroup,
   CommandInput,
   CommandItem,
   CommandList,
-} from "./ui/command"
-import { DialogTitle } from "./ui/dialog"
+} from "@/components/ui/command"
+import { DialogTitle } from "@/components/ui/dialog"
 
 export function CommandMenu({ ...props }: DialogProps) {
   const router = useRouter()

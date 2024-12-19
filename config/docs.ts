@@ -12,12 +12,8 @@ export const docsConfig: DocsConfig = {
       href: "/",
     },
     {
-      title: "Documentation",
-      href: "/docs",
-    },
-    {
       title: "Hooks",
-      href: "/docs/hooks",
+      href: "/docs/hooks/use-boolean",
     },
   ],
   sidebarNav: [
