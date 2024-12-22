@@ -17,7 +17,6 @@ export function SiteHeader() {
           <MainNav />
           <MobileNav />
           <div className="flex flex-1 items-center justify-between gap-2 md:justify-end">
-            {/* TODO: add command menu */}
             <div className="w-full flex-1 md:w-auto md:flex-none">
               <CommandMenu />
             </div>
