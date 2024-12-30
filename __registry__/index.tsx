@@ -67,7 +67,7 @@ export const Index: Record<string, any> = {
   "use-debounce-callback": {
     name: "use-debounce-callback",
     type: "registry:hook",
-    registryDependencies: ["http://localhost:3000/r/use-unmount"],
+    registryDependencies: ["https://hookcn.ouassim.tech/r/use-unmount"],
     files: [
       {
         path: "registry/hooks/use-debounce-callback.tsx",
@@ -100,7 +100,7 @@ export const Index: Record<string, any> = {
     name: "use-interval",
     type: "registry:hook",
     registryDependencies: [
-      "http://localhost:3000/r/use-isomorphic-layout-effect",
+      "https://hookcn.ouassim.tech/r/use-isomorphic-layout-effect",
     ],
     files: [
       {
@@ -116,7 +116,7 @@ export const Index: Record<string, any> = {
     name: "use-timeout",
     type: "registry:hook",
     registryDependencies: [
-      "http://localhost:3000/r/use-isomorphic-layout-effect",
+      "https://hookcn.ouassim.tech/r/use-isomorphic-layout-effect",
     ],
     files: [
       {

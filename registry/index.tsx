@@ -44,7 +44,7 @@ export const registry: Registry = [
   {
     name: "use-debounce-callback",
     type: "registry:hook",
-    registryDependencies: ["http://localhost:3000/r/use-unmount"],
+    registryDependencies: ["https://hookcn.ouassim.tech/r/use-unmount"],
     dependencies: ["lodash.debounce"],
     devDependencies: ["@types/lodash.debounce"],
     files: [
@@ -68,7 +68,7 @@ export const registry: Registry = [
     name: "use-interval",
     type: "registry:hook",
     registryDependencies: [
-      "http://localhost:3000/r/use-isomorphic-layout-effect",
+      "https://hookcn.ouassim.tech/r/use-isomorphic-layout-effect",
     ],
     files: [
       {
@@ -81,7 +81,7 @@ export const registry: Registry = [
     name: "use-timeout",
     type: "registry:hook",
     registryDependencies: [
-      "http://localhost:3000/r/use-isomorphic-layout-effect",
+      "https://hookcn.ouassim.tech/r/use-isomorphic-layout-effect",
     ],
     files: [
       {

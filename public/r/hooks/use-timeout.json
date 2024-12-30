@@ -2,7 +2,7 @@
   "name": "use-timeout",
   "type": "registry:hook",
   "registryDependencies": [
-    "http://localhost:3000/r/use-isomorphic-layout-effect"
+    "https://hookcn.ouassim.tech/r/use-isomorphic-layout-effect"
   ],
   "files": [
     {

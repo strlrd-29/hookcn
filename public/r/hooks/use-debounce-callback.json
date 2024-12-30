@@ -3,7 +3,7 @@
   "type": "registry:hook",
   "dependencies": ["lodash.debounce"],
   "devDependencies": ["@types/lodash.debounce"],
-  "registryDependencies": ["http://localhost:3000/r/use-unmount"],
+  "registryDependencies": ["https://hookcn.ouassim.tech/r/use-unmount"],
   "files": [
     {
       "path": "hooks/use-debounce-callback.tsx",
