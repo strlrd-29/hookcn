@@ -1,6 +1,9 @@
 import { z } from "zod"
 
-export const registryItemTypeSchema = z.enum(["registry:hook"])
+export const registryItemTypeSchema = z.enum([
+  "registry:hook",
+  "registry:example",
+])
 
 export const registryItemFileSchema = z.object({
   path: z.string(),

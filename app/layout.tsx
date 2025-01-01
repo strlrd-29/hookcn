@@ -8,6 +8,8 @@ import { TooltipProvider } from "@/components/ui/tooltip"
 
 import "@/styles/globals.css"
 
+import { Toaster } from "@/components/ui/sonner"
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
@@ -90,6 +92,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               {children}
             </div>
           </TooltipProvider>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
