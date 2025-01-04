@@ -134,7 +134,7 @@ const components = {
     <div className="my-6 w-full overflow-auto">
       <table
         className={cn(
-          "relative w-max border-none text-sm md:w-auto md:text-base ",
+          "relative w-max min-w-full border text-sm md:text-base",
           className
         )}
         {...props}
@@ -159,7 +159,7 @@ const components = {
   td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <td
       className={cn(
-        "p-4 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
+        "max-w-72 p-4 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
         className
       )}
       {...props}
@@ -212,7 +212,7 @@ const components = {
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        "relative whitespace-pre rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm",
+        "relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm",
         className
       )}
       data-line-numbers

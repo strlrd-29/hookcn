@@ -142,4 +142,20 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import("@/registry/hooks/use-counter.tsx")),
     source: "",
   },
+  "use-copy-to-clipboard-demo": {
+    name: "use-copy-to-clipboard-demo",
+    type: "registry:example",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "registry/examples/use-copy-to-clipboard-demo.tsx",
+        type: "registry:example",
+        target: "",
+      },
+    ],
+    component: React.lazy(
+      () => import("@/registry/examples/use-copy-to-clipboard-demo.tsx")
+    ),
+    source: "",
+  },
 }
