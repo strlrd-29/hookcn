@@ -67,9 +67,6 @@ export const hooks: Registry = [
   {
     name: "use-interval",
     type: "registry:hook",
-    registryDependencies: [
-      "https://hookcn.ouassim.tech/r/use-isomorphic-layout-effect",
-    ],
     files: [
       {
         path: "hooks/use-interval.tsx",

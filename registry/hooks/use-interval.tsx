@@ -2,26 +2,20 @@
 
 import * as React from "react"
 
-import { useIsomorphicLayoutEffect } from "@/registry/hooks/use-isomorphic-layout-effect"
-
 export function useInterval(callback: () => void, delay: number | null) {
   const savedCallback = React.useRef(callback)
 
-  useIsomorphicLayoutEffect(() => {
+  React.useEffect(() => {
     savedCallback.current = callback
   }, [callback])
 
   React.useEffect(() => {
-    if (delay === null) {
-      return
-    }
+    if (delay === null || typeof delay !== "number") return
 
-    const id = setInterval(() => {
-      savedCallback.current()
-    }, delay)
+    const tick = () => savedCallback.current()
 
-    return () => {
-      clearInterval(id)
-    }
+    const id = setInterval(tick, delay)
+
+    return () => clearInterval(id)
   }, [delay])
 }

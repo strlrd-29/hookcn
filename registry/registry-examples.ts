@@ -11,4 +11,14 @@ export const examples: Registry = [
       },
     ],
   },
+  {
+    name: "use-interval-demo",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/use-interval-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]
