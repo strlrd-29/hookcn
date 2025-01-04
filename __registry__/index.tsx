@@ -113,9 +113,7 @@ export const Index: Record<string, any> = {
   "use-timeout": {
     name: "use-timeout",
     type: "registry:hook",
-    registryDependencies: [
-      "https://hookcn.ouassim.tech/r/use-isomorphic-layout-effect",
-    ],
+    registryDependencies: undefined,
     files: [
       {
         path: "registry/hooks/use-timeout.tsx",
@@ -169,6 +167,22 @@ export const Index: Record<string, any> = {
     ],
     component: React.lazy(
       () => import("@/registry/examples/use-interval-demo.tsx")
+    ),
+    source: "",
+  },
+  "use-timeout-demo": {
+    name: "use-timeout-demo",
+    type: "registry:example",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "registry/examples/use-timeout-demo.tsx",
+        type: "registry:example",
+        target: "",
+      },
+    ],
+    component: React.lazy(
+      () => import("@/registry/examples/use-timeout-demo.tsx")
     ),
     source: "",
   },

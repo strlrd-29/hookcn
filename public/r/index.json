@@ -75,9 +75,6 @@
   {
     "name": "use-timeout",
     "type": "registry:hook",
-    "registryDependencies": [
-      "https://hookcn.ouassim.tech/r/use-isomorphic-layout-effect"
-    ],
     "files": [
       {
         "path": "hooks/use-timeout.tsx",
@@ -111,6 +108,16 @@
     "files": [
       {
         "path": "examples/use-interval-demo.tsx",
+        "type": "registry:example"
+      }
+    ]
+  },
+  {
+    "name": "use-timeout-demo",
+    "type": "registry:example",
+    "files": [
+      {
+        "path": "examples/use-timeout-demo.tsx",
         "type": "registry:example"
       }
     ]

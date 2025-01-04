@@ -1,7 +1,11 @@
 ---
 title: useTimeout
-description: Run a callback function after a specified delay with useTimeout, supporting dynamic updates and cleanup on unmount.
+description: Run a callback function after a specified delay with useTimeout.
+links:
+  setTimeout API: https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout
 ---
+
+<ComponentPreview name="use-timeout-demo" />
 
 ## Installation
 
@@ -36,7 +40,7 @@ npx shadcn@latest add https://hookcn.ouassim.tech/r/use-timeout
 
 ## Usage
 
-```tsx {5, 14}
+```tsx {5, 10-12}
 "use client"
 
 import * as React from "react"
@@ -44,22 +48,14 @@ import * as React from "react"
 import { useTimeout } from "@/hooks/use-timeout"
 
 export function Component() {
-  const [visible, setVisible] = React.useState(true)
+  const [hasTimeElapsed, setHasTimeElapsed] = React.useState(false)
 
-  const hide = () => {
-    setVisible(false)
-  }
-
-  useTimeout(hide, 5000)
+  useTimeout(() => {
+    setHasTimeElapsed(true)
+  }, 5000)
 
   return (
-    <div>
-      <p>
-        {visible
-          ? "I'm visible for 5000ms"
-          : "You can no longer see this content"}
-      </p>
-    </div>
+    <p>{hasTimeElapsed ? "5 seconds has passed!" : "The timer is running…"}</p>
   )
 }
 ```
@@ -72,7 +68,3 @@ export function Component() {
 | ---------- | ------------------ | ----------------------------------------------------------------------------------- |
 | `callback` | `() => void`       | The function to be executed when the timeout elapses.                               |
 | `delay`    | `null` \| `number` | The duration (in milliseconds) for the timeout. Set to `null` to clear the timeout. |
-
-### Returns
-
-`void`

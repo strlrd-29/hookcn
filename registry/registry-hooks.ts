@@ -77,9 +77,6 @@ export const hooks: Registry = [
   {
     name: "use-timeout",
     type: "registry:hook",
-    registryDependencies: [
-      "https://hookcn.ouassim.tech/r/use-isomorphic-layout-effect",
-    ],
     files: [
       {
         path: "hooks/use-timeout.tsx",

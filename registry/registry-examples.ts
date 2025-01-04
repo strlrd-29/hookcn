@@ -21,4 +21,14 @@ export const examples: Registry = [
       },
     ],
   },
+  {
+    name: "use-timeout-demo",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/use-timeout-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]

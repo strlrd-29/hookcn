@@ -1,13 +1,10 @@
 {
   "name": "use-timeout",
   "type": "registry:hook",
-  "registryDependencies": [
-    "https://hookcn.ouassim.tech/r/use-isomorphic-layout-effect"
-  ],
   "files": [
     {
       "path": "hooks/use-timeout.tsx",
-      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { useIsomorphicLayoutEffect } from \"@/registry/default/hooks/use-isomorphic-layout-effect\"\n\nexport function useTimeout(callback: () => void, delay: number | null): void {\n  const savedCallback = React.useRef(callback)\n\n  useIsomorphicLayoutEffect(() => {\n    savedCallback.current = callback\n  }, [callback])\n\n  React.useEffect(() => {\n    if (!delay && delay !== 0) {\n      return\n    }\n\n    const id = setTimeout(() => {\n      savedCallback.current()\n    }, delay)\n\n    return () => {\n      clearTimeout(id)\n    }\n  }, [delay])\n}\n",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nexport function useTimeout(callback: () => void, delay: number | null): void {\n  const savedCallback = React.useRef(callback)\n\n  React.useEffect(() => {\n    savedCallback.current = callback\n  }, [callback])\n\n  React.useEffect(() => {\n    if (delay === null || typeof delay !== \"number\") return\n\n    const tick = () => savedCallback.current()\n\n    const id = setTimeout(tick, delay)\n\n    return () => clearTimeout(id)\n  }, [delay])\n}\n",
       "type": "registry:hook",
       "target": ""
     }
