@@ -17,6 +17,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Callout } from "@/components/callout"
 import { CodeBlockCommand } from "@/components/code-block-command"
 import { CodeBlockWrapper } from "@/components/code-block-wrapper"
+import { ComponentPreview } from "@/components/component-preview"
 import { ComponentSource } from "@/components/component-source"
 import { CopyButton } from "@/components/copy-button"
 
@@ -33,6 +34,7 @@ const components = {
   AlertTitle,
   AlertDescription,
   ComponentSource,
+  ComponentPreview,
   CodeBlockWrapper: ({ ...props }) => (
     <CodeBlockWrapper className="rounded-md border" {...props} />
   ),
@@ -129,10 +131,10 @@ const components = {
     <hr className="my-4 md:my-8" {...props} />
   ),
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
-    <div className="my-6 w-full overflow-y-auto">
+    <div className="my-6 w-full overflow-auto">
       <table
         className={cn(
-          "relative w-full overflow-hidden border-none text-sm md:text-base",
+          "relative w-max min-w-full border text-sm md:text-base",
           className
         )}
         {...props}
@@ -157,7 +159,7 @@ const components = {
   td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <td
       className={cn(
-        "p-4 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
+        "max-w-72 p-4 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
         className
       )}
       {...props}
@@ -210,7 +212,7 @@ const components = {
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        "relative whitespace-pre rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm",
+        "relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm",
         className
       )}
       data-line-numbers

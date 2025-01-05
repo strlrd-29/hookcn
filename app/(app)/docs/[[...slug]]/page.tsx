@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { allDocs } from "contentlayer/generated"
-import { ChevronRightIcon } from "lucide-react"
+import { ChevronRightIcon, ExternalLinkIcon } from "lucide-react"
 import { Balancer } from "react-wrap-balancer"
 
 import { siteConfig } from "@/config/site"
@@ -12,6 +12,9 @@ import { DashboardTableOfContents } from "@/components/toc"
 
 import "@/styles/mdx.css"
 
+import Link from "next/link"
+
+import { badgeVariants } from "@/components/ui/badge"
 import { Contribute } from "@/components/contribute"
 import { DocGridPattern } from "@/components/doc-grid-pattern"
 import { ScrambleText } from "@/components/scramble-text"
@@ -114,6 +117,25 @@ export default async function DocPage(props: {
               </p>
             )}
           </div>
+          {doc.links ? (
+            <div className="flex items-center space-x-2 pt-4">
+              {Object.entries(doc.links).map(([k, v]) => (
+                <Link
+                  key={k}
+                  href={v as any}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={cn(
+                    badgeVariants({ variant: "secondary" }),
+                    "gap-1"
+                  )}
+                >
+                  {k}
+                  <ExternalLinkIcon className="size-3" />
+                </Link>
+              ))}
+            </div>
+          ) : null}
           <div className="pb-12 pt-8">
             <Mdx code={doc.body.code} />
           </div>

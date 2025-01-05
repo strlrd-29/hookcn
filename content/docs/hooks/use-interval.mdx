@@ -1,7 +1,11 @@
 ---
 title: useInterval
 description: Execute a callback function at specified intervals with useInterval, supporting dynamic delays and cleanup on unmount.
+links:
+  setInterval API: https://developer.mozilla.org/en-US/docs/Web/API/Window/setInterval
 ---
+
+<ComponentPreview name="use-interval-demo" />
 
 ## Installation
 
@@ -27,8 +31,6 @@ npx shadcn@latest add https://hookcn.ouassim.tech/r/use-interval
 <Step>Copy and paste the following code into your project.</Step>
 
 <ComponentSource name="use-interval" />
-
-<Step>You did it! Time for a virtual high-five! ✋</Step>
 
 </Steps>
 
@@ -93,7 +95,3 @@ export function Component() {
 | ---------- | ------------------ | ----------------------------------------------------------------------------------------------------- |
 | `callback` | `() => void`       | The function to be invoked at each interval.                                                          |
 | `delay`    | `null` \| `number` | The time, in milliseconds, between each invocation of the callback. Use `null` to clear the interval. |
-
-### Returns
-
-`void`

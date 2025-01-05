@@ -1,7 +1,11 @@
 ---
 title: useCopyToClipboard
-description: Copy text to the clipboard easily with useCopyToClipboard, while keeping track of the most recently copied value.
+description: Use the useCopyToClipboard hook to copy text to the clipboard and track whether the copy action was successful, with an optional delay to reset the copied state.
+links:
+  Clipboard API: https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API
 ---
+
+<ComponentPreview name="use-copy-to-clipboard-demo" />
 
 ## Installation
 
@@ -28,8 +32,6 @@ npx shadcn@latest add https://hookcn.ouassim.tech/r/use-copy-to-clipboard
 
 <ComponentSource name="use-copy-to-clipboard" />
 
-<Step>You did it! Time for a virtual high-five! ✋</Step>
-
 </Steps>
 
 </TabsContent>
@@ -38,43 +40,38 @@ npx shadcn@latest add https://hookcn.ouassim.tech/r/use-copy-to-clipboard
 
 ## Usage
 
-```tsx {1, 4}
+```tsx {1, 5, 10}
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
+import { Button } from "@/components/ui/button"
 
 export function Component() {
-  const [copiedText, copy] = useCopyToClipboard()
-
-  const handleCopy = (text: string) => () => {
-    copy(text)
-      .then(() => {
-        console.log("Copied!", { text })
-      })
-      .catch((error) => {
-        console.error("Failed to copy!", error)
-      })
-  }
+  const [copy, isCopied] = useCopyToClipboard()
 
   return (
-    <>
-      <h1>Click to copy:</h1>
-      <div style={{ display: "flex" }}>
-        <button onClick={handleCopy("A")}>A</button>
-        <button onClick={handleCopy("B")}>B</button>
-        <button onClick={handleCopy("C")}>C</button>
-      </div>
-      <p>Copied value: {copiedText ?? "Nothing is copied yet!"}</p>
-    </>
+    <Button
+      onClick={() =>
+        copy("hello world").then(() => console.info("Text copied!"))
+      }
+    >
+      {isCopied ? "Text Copied" : "Click to copy"}
+    </Button>
   )
 }
 ```
 
 ## API Reference
 
+### Parameters
+
+| Name     | Type     | Description                               | Default |
+| -------- | -------- | ----------------------------------------- | ------- |
+| `delay?` | `number` | Time in milliseconds to reset `isCopied`. | `2000`  |
+
 ### Returns
 
 The `useCopyToClipboard` hook returns a tuple with the following elements:
 
-| Index | Type                                 | Description                                                           |
-| ----- | ------------------------------------ | --------------------------------------------------------------------- |
-| `0`   | `string` \| `null`                   | The copied text as `string` or `null` if nothing has been copied yet. |
-| `1`   | `(text: string) => Promise<boolean>` | Function to copy text to the clipboard.                               |
+| Index | Type                                 | Description                                                             |
+| ----- | ------------------------------------ | ----------------------------------------------------------------------- |
+| `0`   | `(text: string) => Promise<boolean>` | Function to copy text to the clipboard.                                 |
+| `1`   | `boolean`                            | Indicates if the last copy was successful, resetting after the `delay`. |

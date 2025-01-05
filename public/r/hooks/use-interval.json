@@ -1,13 +1,10 @@
 {
   "name": "use-interval",
   "type": "registry:hook",
-  "registryDependencies": [
-    "https://hookcn.ouassim.tech/r/use-isomorphic-layout-effect"
-  ],
   "files": [
     {
       "path": "hooks/use-interval.tsx",
-      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { useIsomorphicLayoutEffect } from \"@/registry/default/hooks/use-isomorphic-layout-effect\"\n\nexport function useInterval(callback: () => void, delay: number | null) {\n  const savedCallback = React.useRef(callback)\n\n  useIsomorphicLayoutEffect(() => {\n    savedCallback.current = callback\n  }, [callback])\n\n  React.useEffect(() => {\n    if (delay === null) {\n      return\n    }\n\n    const id = setInterval(() => {\n      savedCallback.current()\n    }, delay)\n\n    return () => {\n      clearInterval(id)\n    }\n  }, [delay])\n}\n",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nexport function useInterval(callback: () => void, delay: number | null) {\n  const savedCallback = React.useRef(callback)\n\n  React.useEffect(() => {\n    savedCallback.current = callback\n  }, [callback])\n\n  React.useEffect(() => {\n    if (delay === null || typeof delay !== \"number\") return\n\n    const tick = () => savedCallback.current()\n\n    const id = setInterval(tick, delay)\n\n    return () => clearInterval(id)\n  }, [delay])\n}\n",
       "type": "registry:hook",
       "target": ""
     }

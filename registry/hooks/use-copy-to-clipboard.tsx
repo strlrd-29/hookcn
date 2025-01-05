@@ -2,12 +2,20 @@
 
 import * as React from "react"
 
-type CopiedValue = string | null
-
 type CopyFn = (text: string) => Promise<boolean>
 
-export function useCopyToClipboard(): [CopiedValue, CopyFn] {
-  const [copiedText, setCopiedText] = React.useState<CopiedValue>(null)
+export function useCopyToClipboard(delay = 2000): [CopyFn, boolean] {
+  const [isCopied, setIsCopied] = React.useState(false)
+
+  React.useEffect(() => {
+    if (!isCopied) return
+
+    const timer = setTimeout(() => {
+      setIsCopied(false)
+    }, delay)
+
+    return () => clearTimeout(timer)
+  }, [isCopied, delay])
 
   const copy: CopyFn = React.useCallback(async (text) => {
     if (!navigator?.clipboard) {
@@ -17,14 +25,13 @@ export function useCopyToClipboard(): [CopiedValue, CopyFn] {
 
     try {
       await navigator.clipboard.writeText(text)
-      setCopiedText(text)
+      setIsCopied(true)
       return true
     } catch (error) {
       console.warn("Copy failed", error)
-      setCopiedText(null)
       return false
     }
   }, [])
 
-  return [copiedText, copy]
+  return [copy, isCopied]
 }

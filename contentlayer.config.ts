@@ -36,6 +36,10 @@ export const Doc = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
+    links: {
+      type: "json",
+      required: false,
+    },
     toc: {
       type: "boolean",
       default: true,

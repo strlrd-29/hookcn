@@ -65,9 +65,6 @@
   {
     "name": "use-interval",
     "type": "registry:hook",
-    "registryDependencies": [
-      "https://hookcn.ouassim.tech/r/use-isomorphic-layout-effect"
-    ],
     "files": [
       {
         "path": "hooks/use-interval.tsx",
@@ -78,9 +75,6 @@
   {
     "name": "use-timeout",
     "type": "registry:hook",
-    "registryDependencies": [
-      "https://hookcn.ouassim.tech/r/use-isomorphic-layout-effect"
-    ],
     "files": [
       {
         "path": "hooks/use-timeout.tsx",
@@ -95,6 +89,36 @@
       {
         "path": "hooks/use-counter.tsx",
         "type": "registry:hook"
+      }
+    ]
+  },
+  {
+    "name": "use-copy-to-clipboard-demo",
+    "type": "registry:example",
+    "files": [
+      {
+        "path": "examples/use-copy-to-clipboard-demo.tsx",
+        "type": "registry:example"
+      }
+    ]
+  },
+  {
+    "name": "use-interval-demo",
+    "type": "registry:example",
+    "files": [
+      {
+        "path": "examples/use-interval-demo.tsx",
+        "type": "registry:example"
+      }
+    ]
+  },
+  {
+    "name": "use-timeout-demo",
+    "type": "registry:example",
+    "files": [
+      {
+        "path": "examples/use-timeout-demo.tsx",
+        "type": "registry:example"
       }
     ]
   }
