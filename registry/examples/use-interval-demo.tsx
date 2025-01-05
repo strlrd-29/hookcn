@@ -17,7 +17,7 @@ export default function UseIntervalDemo() {
   )
   const [index, setIndex] = React.useState(0)
 
-  useInterval(() => setIndex((index) => index + 1), 1500)
+  useInterval(() => setIndex((index) => index + 1), 1000)
 
   const color = colors[index % colors.length]
 
