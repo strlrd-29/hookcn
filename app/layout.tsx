@@ -1,12 +1,14 @@
 import type { Metadata, Viewport } from "next"
 import { ThemeProvider } from "next-themes"
 
+import { THEMES } from "@/config/colors"
 import { META_THEME_COLORS, siteConfig } from "@/config/site"
 import { fontMono, fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { TooltipProvider } from "@/components/ui/tooltip"
 
 import "@/styles/globals.css"
+import "@/styles/themes.css"
 
 import { Toaster } from "@/components/ui/sonner"
 
@@ -81,6 +83,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         )}
       >
         <ThemeProvider
+          themes={THEMES}
           attribute="class"
           defaultTheme="system"
           enableSystem
