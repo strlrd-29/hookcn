@@ -1,0 +1,59 @@
+---
+title: useDocumentTitle
+description: Dynamically update the document title. Pass a string, and the document title updates whenever the value changes.
+links:
+  Document title property: https://developer.mozilla.org/en-US/docs/Web/API/Document/title
+---
+
+<ComponentPreview name="use-document-title-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add https://hookcn.ouassim.tech/r/use-document-title
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="use-document-title" />
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx {1, 4}
+import { useDocumentTitle } from "@/hooks/use-document-title"
+
+export function Component() {
+  useDocumentTitle("New title for my page")
+
+  return <div>...</div>
+}
+```
+
+## API Reference
+
+### Parameters
+
+| Name    | Type     | Description                            |
+| ------- | -------- | -------------------------------------- |
+| `title` | `string` | The new title to set for the document. |

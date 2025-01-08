@@ -1,0 +1,12 @@
+{
+  "name": "use-document-title",
+  "type": "registry:hook",
+  "files": [
+    {
+      "path": "hooks/use-document-title.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nexport function useDocumentTitle(title: string) {\n  React.useEffect(() => {\n    document.title = title\n  }, [title])\n}\n",
+      "type": "registry:hook",
+      "target": ""
+    }
+  ]
+}

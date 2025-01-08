@@ -124,6 +124,22 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import("@/registry/hooks/use-timeout.tsx")),
     source: "",
   },
+  "use-document-title": {
+    name: "use-document-title",
+    type: "registry:hook",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "registry/hooks/use-document-title.tsx",
+        type: "registry:hook",
+        target: "",
+      },
+    ],
+    component: React.lazy(
+      () => import("@/registry/hooks/use-document-title.tsx")
+    ),
+    source: "",
+  },
   "use-counter": {
     name: "use-counter",
     type: "registry:hook",
@@ -183,6 +199,22 @@ export const Index: Record<string, any> = {
     ],
     component: React.lazy(
       () => import("@/registry/examples/use-timeout-demo.tsx")
+    ),
+    source: "",
+  },
+  "use-document-title-demo": {
+    name: "use-document-title-demo",
+    type: "registry:example",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "registry/examples/use-document-title-demo.tsx",
+        type: "registry:example",
+        target: "",
+      },
+    ],
+    component: React.lazy(
+      () => import("@/registry/examples/use-document-title-demo.tsx")
     ),
     source: "",
   },

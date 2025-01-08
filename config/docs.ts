@@ -61,6 +61,11 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Use DocumentTitle",
+          href: "/docs/hooks/use-document-title",
+          items: [],
+        },
+        {
           title: "Use Counter",
           href: "/docs/hooks/use-counter",
           items: [],

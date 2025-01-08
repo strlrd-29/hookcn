@@ -85,6 +85,16 @@ export const hooks: Registry = [
     ],
   },
   {
+    name: "use-document-title",
+    type: "registry:hook",
+    files: [
+      {
+        path: "hooks/use-document-title.tsx",
+        type: "registry:hook",
+      },
+    ],
+  },
+  {
     name: "use-counter",
     type: "registry:hook",
     files: [

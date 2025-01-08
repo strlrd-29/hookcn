@@ -83,6 +83,16 @@
     ]
   },
   {
+    "name": "use-document-title",
+    "type": "registry:hook",
+    "files": [
+      {
+        "path": "hooks/use-document-title.tsx",
+        "type": "registry:hook"
+      }
+    ]
+  },
+  {
     "name": "use-counter",
     "type": "registry:hook",
     "files": [
@@ -118,6 +128,16 @@
     "files": [
       {
         "path": "examples/use-timeout-demo.tsx",
+        "type": "registry:example"
+      }
+    ]
+  },
+  {
+    "name": "use-document-title-demo",
+    "type": "registry:example",
+    "files": [
+      {
+        "path": "examples/use-document-title-demo.tsx",
         "type": "registry:example"
       }
     ]
