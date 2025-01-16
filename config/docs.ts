@@ -70,6 +70,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/hooks/use-counter",
           items: [],
         },
+        {
+          title: "Use MousePosition",
+          href: "/docs/hooks/use-mouse-position",
+          items: [],
+        },
       ],
     },
   ],
