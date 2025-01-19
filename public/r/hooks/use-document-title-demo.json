@@ -4,7 +4,7 @@
   "files": [
     {
       "path": "examples/use-document-title-demo.tsx",
-      "content": "import * as React from \"react\"\n\nimport { Button } from \"@/components/ui/button\"\n\nimport { useDocumentTitle } from \"../hooks/use-document-title\"\n\nexport default function UseDocumentTitleDemo() {\n  const [counter, setCounter] = React.useState(0)\n\n  useDocumentTitle(`Clicked ${counter} times.`)\n  return (\n    <div className=\"flex flex-col gap-4\">\n      <Button\n        className=\"font-bold uppercase\"\n        onClick={() => setCounter(counter + 1)}\n      >\n        Increment Counter: {counter}\n      </Button>\n      <p>\n        Click to increment the counter and watch the document title update in\n        real-time!\n      </p>\n    </div>\n  )\n}\n",
+      "content": "import * as React from \"react\"\n\nimport { Button } from \"@/components/ui/button\"\nimport { useDocumentTitle } from \"@/registry/default/hooks/use-document-title\"\n\nexport default function UseDocumentTitleDemo() {\n  const [counter, setCounter] = React.useState(0)\n\n  useDocumentTitle(`Clicked ${counter} times.`)\n  return (\n    <div className=\"flex flex-col items-center gap-4\">\n      <Button className=\"w-fit\" onClick={() => setCounter(counter + 1)}>\n        Increment Counter: {counter}\n      </Button>\n      <p className=\"w-3/4 text-center text-muted-foreground\">\n        Click to increment the counter and watch the document title update in\n        real-time!\n      </p>\n    </div>\n  )\n}\n",
       "type": "registry:hook",
       "target": ""
     }

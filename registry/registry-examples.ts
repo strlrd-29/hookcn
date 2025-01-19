@@ -41,4 +41,14 @@ export const examples: Registry = [
       },
     ],
   },
+  {
+    name: "use-mouse-position-demo",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/use-mouse-position-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]

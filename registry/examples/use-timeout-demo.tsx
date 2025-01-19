@@ -6,7 +6,7 @@ import { RefreshCwIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useTimeout } from "@/registry/hooks/use-timeout"
 
-export default function TypingGameDemo() {
+export default function UseTimeoutDemo() {
   const [hasDefused, setHasDefused] = React.useState(false)
   const [hasExploded, setHasExploded] = React.useState(false)
 
