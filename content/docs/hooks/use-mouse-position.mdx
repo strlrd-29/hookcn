@@ -1,0 +1,95 @@
+---
+title: useMousePosition
+description: Use the useCopyToClipboard hook to copy text to the clipboard and track whether the copy action was successful, with an optional delay to reset the copied state.
+---
+
+<ComponentPreview name="use-mouse-position-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add https://hookcn.ouassim.tech/r/use-mouse-position
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="use-mouse-position" />
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx {5, 8, 13, 22-23, 27}
+"use client"
+
+import React from "react"
+
+import { useMousePosition } from "@/hooks/useMousePosition"
+
+export default function App() {
+  const [position, ref] = useMousePosition<HTMLDivElement>()
+
+  return (
+    <div>
+      <div
+        ref={ref}
+        style={{
+          width: "300px",
+          height: "300px",
+          background: "lightgray",
+          position: "relative",
+        }}
+      >
+        <p>
+          Mouse position inside element: {position.elementX},{" "}
+          {position.elementY}
+        </p>
+      </div>
+      <p>
+        Mouse position in viewport: {position.x}, {position.y}
+      </p>
+    </div>
+  )
+}
+```
+
+## API Reference
+
+### Returns
+
+The `useMousePosition` hook returns an array with two elements:
+
+| Name    | Type           | Description                                                             |
+| ------- | -------------- | ----------------------------------------------------------------------- |
+| `state` | `Position`     | Tracks mouse position relative to the viewport and an optional element. |
+| `ref`   | `React.Ref<T>` | A ref to attach to a DOM element for relative position tracking.        |
+
+The `state` object (of type `Position`) has the following properties:
+
+| Name                | Type     | Description                                               |
+| ------------------- | -------- | --------------------------------------------------------- |
+| `x`                 | `number` | Horizontal position in the viewport.                      |
+| `y`                 | `number` | Vertical position in the viewport.                        |
+| `elementX?`         | `number` | Horizontal position relative to the referenced element.   |
+| `elementY?`         | `number` | Vertical position relative to the referenced element.     |
+| `elementPositionX?` | `number` | Referenced element’s horizontal position in the document. |
+| `elementPositionY?` | `number` | Referenced element’s vertical position in the document.   |

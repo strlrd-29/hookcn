@@ -104,4 +104,14 @@ export const hooks: Registry = [
       },
     ],
   },
+  {
+    name: "use-mouse-position",
+    type: "registry:hook",
+    files: [
+      {
+        path: "hooks/use-mouse-position.tsx",
+        type: "registry:hook",
+      },
+    ],
+  },
 ]

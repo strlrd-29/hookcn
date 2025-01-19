@@ -154,6 +154,22 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import("@/registry/hooks/use-counter.tsx")),
     source: "",
   },
+  "use-mouse-position": {
+    name: "use-mouse-position",
+    type: "registry:hook",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "registry/hooks/use-mouse-position.tsx",
+        type: "registry:hook",
+        target: "",
+      },
+    ],
+    component: React.lazy(
+      () => import("@/registry/hooks/use-mouse-position.tsx")
+    ),
+    source: "",
+  },
   "use-copy-to-clipboard-demo": {
     name: "use-copy-to-clipboard-demo",
     type: "registry:example",
@@ -215,6 +231,22 @@ export const Index: Record<string, any> = {
     ],
     component: React.lazy(
       () => import("@/registry/examples/use-document-title-demo.tsx")
+    ),
+    source: "",
+  },
+  "use-mouse-position-demo": {
+    name: "use-mouse-position-demo",
+    type: "registry:example",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "registry/examples/use-mouse-position-demo.tsx",
+        type: "registry:example",
+        target: "",
+      },
+    ],
+    component: React.lazy(
+      () => import("@/registry/examples/use-mouse-position-demo.tsx")
     ),
     source: "",
   },

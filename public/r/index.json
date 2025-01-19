@@ -103,6 +103,16 @@
     ]
   },
   {
+    "name": "use-mouse-position",
+    "type": "registry:hook",
+    "files": [
+      {
+        "path": "hooks/use-mouse-position.tsx",
+        "type": "registry:hook"
+      }
+    ]
+  },
+  {
     "name": "use-copy-to-clipboard-demo",
     "type": "registry:example",
     "files": [
@@ -138,6 +148,16 @@
     "files": [
       {
         "path": "examples/use-document-title-demo.tsx",
+        "type": "registry:example"
+      }
+    ]
+  },
+  {
+    "name": "use-mouse-position-demo",
+    "type": "registry:example",
+    "files": [
+      {
+        "path": "examples/use-mouse-position-demo.tsx",
         "type": "registry:example"
       }
     ]
