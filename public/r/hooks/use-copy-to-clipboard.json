@@ -1,12 +1,12 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "use-copy-to-clipboard",
   "type": "registry:hook",
   "files": [
     {
-      "path": "hooks/use-copy-to-clipboard.tsx",
+      "path": "registry/hooks/use-copy-to-clipboard.tsx",
       "content": "\"use client\"\n\nimport * as React from \"react\"\n\ntype CopyFn = (text: string) => Promise<boolean>\n\nexport function useCopyToClipboard(delay = 2000): [CopyFn, boolean] {\n  const [isCopied, setIsCopied] = React.useState(false)\n\n  React.useEffect(() => {\n    if (!isCopied) return\n\n    const timer = setTimeout(() => {\n      setIsCopied(false)\n    }, delay)\n\n    return () => clearTimeout(timer)\n  }, [isCopied, delay])\n\n  const copy: CopyFn = React.useCallback(async (text) => {\n    if (!navigator?.clipboard) {\n      console.warn(\"Clipboard not supported\")\n      return false\n    }\n\n    try {\n      await navigator.clipboard.writeText(text)\n      setIsCopied(true)\n      return true\n    } catch (error) {\n      console.warn(\"Copy failed\", error)\n      return false\n    }\n  }, [])\n\n  return [copy, isCopied]\n}\n",
-      "type": "registry:hook",
-      "target": ""
+      "type": "registry:hook"
     }
   ]
 }

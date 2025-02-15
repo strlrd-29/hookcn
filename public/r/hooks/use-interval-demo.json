@@ -1,12 +1,12 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "use-interval-demo",
   "type": "registry:example",
   "files": [
     {
-      "path": "examples/use-interval-demo.tsx",
-      "content": "import * as React from \"react\"\n\nimport { useInterval } from \"@/registry/default/hooks/use-interval\"\n\nexport default function UseIntervalDemo() {\n  const colors = React.useMemo(\n    () => [\n      \"221.2 83.2% 53.3%\",\n      \"346.8 77.2% 49.8%\",\n      \"24.6 95% 53.1%\",\n      \"142.1 76.2% 36.3%\",\n      \"47.9 95.8% 53.1%\",\n      \"0 72.2% 50.6%\",\n      \"262.1 83.3% 57.8%\",\n    ],\n    []\n  )\n  const [index, setIndex] = React.useState(0)\n\n  useInterval(() => setIndex((index) => index + 1), 1000)\n\n  const color = colors[index % colors.length]\n\n  return (\n    <div\n      className=\"size-48 rounded-xl transition-all duration-300 ease-in\"\n      style={{\n        background: `hsl(${color})`,\n      }}\n    />\n  )\n}\n",
-      "type": "registry:hook",
-      "target": ""
+      "path": "registry/examples/use-interval-demo.tsx",
+      "content": "import * as React from \"react\"\n\nimport { useInterval } from \"@/registry/hooks/use-interval\"\n\nexport default function UseIntervalDemo() {\n  const colors = React.useMemo(\n    () => [\n      \"221.2 83.2% 53.3%\",\n      \"346.8 77.2% 49.8%\",\n      \"24.6 95% 53.1%\",\n      \"142.1 76.2% 36.3%\",\n      \"47.9 95.8% 53.1%\",\n      \"0 72.2% 50.6%\",\n      \"262.1 83.3% 57.8%\",\n    ],\n    []\n  )\n  const [index, setIndex] = React.useState(0)\n\n  useInterval(() => setIndex((index) => index + 1), 1000)\n\n  const color = colors[index % colors.length]\n\n  return (\n    <div\n      className=\"size-48 rounded-xl transition-all duration-300 ease-in\"\n      style={{\n        background: `hsl(${color})`,\n      }}\n    />\n  )\n}\n",
+      "type": "registry:example"
     }
   ]
 }

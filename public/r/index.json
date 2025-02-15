@@ -1,165 +1,170 @@
-[
-  {
-    "name": "use-boolean",
-    "type": "registry:hook",
-    "files": [
-      {
-        "path": "hooks/use-boolean.tsx",
-        "type": "registry:hook"
-      }
-    ]
-  },
-  {
-    "name": "use-toggle",
-    "type": "registry:hook",
-    "files": [
-      {
-        "path": "hooks/use-toggle.tsx",
-        "type": "registry:hook"
-      }
-    ]
-  },
-  {
-    "name": "use-copy-to-clipboard",
-    "type": "registry:hook",
-    "files": [
-      {
-        "path": "hooks/use-copy-to-clipboard.tsx",
-        "type": "registry:hook"
-      }
-    ]
-  },
-  {
-    "name": "use-unmount",
-    "type": "registry:hook",
-    "files": [
-      {
-        "path": "hooks/use-unmount.tsx",
-        "type": "registry:hook"
-      }
-    ]
-  },
-  {
-    "name": "use-debounce-callback",
-    "type": "registry:hook",
-    "dependencies": ["lodash.debounce"],
-    "devDependencies": ["@types/lodash.debounce"],
-    "registryDependencies": ["https://hookcn.ouassim.tech/r/use-unmount"],
-    "files": [
-      {
-        "path": "hooks/use-debounce-callback.tsx",
-        "type": "registry:hook"
-      }
-    ]
-  },
-  {
-    "name": "use-isomorphic-layout-effect",
-    "type": "registry:hook",
-    "files": [
-      {
-        "path": "hooks/use-isomorphic-layout-effect.tsx",
-        "type": "registry:hook"
-      }
-    ]
-  },
-  {
-    "name": "use-interval",
-    "type": "registry:hook",
-    "files": [
-      {
-        "path": "hooks/use-interval.tsx",
-        "type": "registry:hook"
-      }
-    ]
-  },
-  {
-    "name": "use-timeout",
-    "type": "registry:hook",
-    "files": [
-      {
-        "path": "hooks/use-timeout.tsx",
-        "type": "registry:hook"
-      }
-    ]
-  },
-  {
-    "name": "use-document-title",
-    "type": "registry:hook",
-    "files": [
-      {
-        "path": "hooks/use-document-title.tsx",
-        "type": "registry:hook"
-      }
-    ]
-  },
-  {
-    "name": "use-counter",
-    "type": "registry:hook",
-    "files": [
-      {
-        "path": "hooks/use-counter.tsx",
-        "type": "registry:hook"
-      }
-    ]
-  },
-  {
-    "name": "use-mouse-position",
-    "type": "registry:hook",
-    "files": [
-      {
-        "path": "hooks/use-mouse-position.tsx",
-        "type": "registry:hook"
-      }
-    ]
-  },
-  {
-    "name": "use-copy-to-clipboard-demo",
-    "type": "registry:example",
-    "files": [
-      {
-        "path": "examples/use-copy-to-clipboard-demo.tsx",
-        "type": "registry:example"
-      }
-    ]
-  },
-  {
-    "name": "use-interval-demo",
-    "type": "registry:example",
-    "files": [
-      {
-        "path": "examples/use-interval-demo.tsx",
-        "type": "registry:example"
-      }
-    ]
-  },
-  {
-    "name": "use-timeout-demo",
-    "type": "registry:example",
-    "files": [
-      {
-        "path": "examples/use-timeout-demo.tsx",
-        "type": "registry:example"
-      }
-    ]
-  },
-  {
-    "name": "use-document-title-demo",
-    "type": "registry:example",
-    "files": [
-      {
-        "path": "examples/use-document-title-demo.tsx",
-        "type": "registry:example"
-      }
-    ]
-  },
-  {
-    "name": "use-mouse-position-demo",
-    "type": "registry:example",
-    "files": [
-      {
-        "path": "examples/use-mouse-position-demo.tsx",
-        "type": "registry:example"
-      }
-    ]
-  }
-]
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "homepage": "https://hookcn.ouassim.tech",
+  "name": "hookcn",
+  "items": [
+    {
+      "name": "use-boolean",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "registry/hooks/use-boolean.tsx",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-toggle",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "registry/hooks/use-toggle.tsx",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-copy-to-clipboard",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "registry/hooks/use-copy-to-clipboard.tsx",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-unmount",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "registry/hooks/use-unmount.tsx",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-debounce-callback",
+      "type": "registry:hook",
+      "dependencies": ["lodash.debounce"],
+      "devDependencies": ["@types/lodash.debounce"],
+      "registryDependencies": ["https://hookcn.ouassim.tech/r/use-unmount"],
+      "files": [
+        {
+          "path": "registry/hooks/use-debounce-callback.tsx",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-isomorphic-layout-effect",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "registry/hooks/use-isomorphic-layout-effect.tsx",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-interval",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "registry/hooks/use-interval.tsx",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-timeout",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "registry/hooks/use-timeout.tsx",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-document-title",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "registry/hooks/use-document-title.tsx",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-counter",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "registry/hooks/use-counter.tsx",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-mouse-position",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "registry/hooks/use-mouse-position.tsx",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-copy-to-clipboard-demo",
+      "type": "registry:example",
+      "files": [
+        {
+          "path": "registry/examples/use-copy-to-clipboard-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "use-interval-demo",
+      "type": "registry:example",
+      "files": [
+        {
+          "path": "registry/examples/use-interval-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "use-timeout-demo",
+      "type": "registry:example",
+      "files": [
+        {
+          "path": "registry/examples/use-timeout-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "use-document-title-demo",
+      "type": "registry:example",
+      "files": [
+        {
+          "path": "registry/examples/use-document-title-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "use-mouse-position-demo",
+      "type": "registry:example",
+      "files": [
+        {
+          "path": "registry/examples/use-mouse-position-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    }
+  ]
+}
