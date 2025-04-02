@@ -38,7 +38,7 @@
     "react-wrap-balancer": "^1.1.1",
     "sonner": "^1.7.1",
     "tailwind-merge": "^2.5.5",
-    "tailwindcss-animate": "^1.0.7",
+    "tw-animate-css": "^1.2.5",
     "use-scramble": "^2.2.15",
     "vaul": "^1.1.2",
     "zod": "^3.24.1"
