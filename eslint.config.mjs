@@ -13,11 +13,7 @@ const compat = new FlatCompat({
 })
 
 const eslintConfig = [
-  ...compat.extends(
-    "next/core-web-vitals",
-    "next/typescript",
-    "plugin:tailwindcss/recommended"
-  ),
+  ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
     rules: {
       "no-console": [
@@ -27,23 +23,13 @@ const eslintConfig = [
         },
       ],
       "@typescript-eslint/no-require-imports": "off",
-      "tailwindcss/no-custom-classname": "off",
       "@typescript-eslint/no-explicit-any": "off",
-      "tailwindcss/classnames-order": "error",
     },
   },
   {
     files: ["**/*.ts", "**/*.tsx", "**/*.js"],
     languageOptions: {
       parser: tsParser,
-    },
-  },
-  {
-    settings: {
-      tailwindcss: {
-        callees: ["cn", "cva"],
-        config: "tailwind.config.ts",
-      },
     },
   },
 ]

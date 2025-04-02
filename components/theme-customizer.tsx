@@ -46,7 +46,7 @@ export function ThemeCustomizer() {
           </PopoverTrigger>
           <PopoverContent
             align="end"
-            className="z-[999] w-[340px] rounded-[12px] p-6"
+            className="z-999 w-[340px] rounded-[12px] p-6"
             sideOffset={10}
           >
             <Customizer />
@@ -119,7 +119,7 @@ export function Customizer() {
                 >
                   <span
                     className={cn(
-                      "mr-1 flex size-5 shrink-0 -translate-x-1 items-center justify-center rounded-full bg-[--theme-primary]"
+                      "mr-1 flex size-5 shrink-0 -translate-x-1 items-center justify-center rounded-full bg-(--theme-primary)"
                     )}
                   >
                     {isActive && <CheckIcon className="size-4 text-white" />}
