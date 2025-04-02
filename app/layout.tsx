@@ -1,16 +1,16 @@
 import type { Metadata, Viewport } from "next"
+import { cookies } from "next/headers"
 import { ThemeProvider } from "next-themes"
 
-import { THEMES } from "@/config/colors"
 import { META_THEME_COLORS, siteConfig } from "@/config/site"
 import { fontMono, fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { TooltipProvider } from "@/components/ui/tooltip"
 
 import "@/styles/globals.css"
-import "@/styles/themes.css"
 
 import { Toaster } from "@/components/ui/sonner"
+import { ActiveThemeProvider } from "@/components/active-theme"
 
 export const metadata: Metadata = {
   title: {
@@ -72,29 +72,34 @@ interface RootLayoutProps {
   children: React.ReactNode
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default async function RootLayout({ children }: RootLayoutProps) {
+  const cookieStore = await cookies()
+  const activeThemeValue = cookieStore.get("active_theme")?.value
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
           "min-h-svh overflow-x-hidden bg-background font-sans antialiased",
           fontSans.variable,
-          fontMono.variable
+          fontMono.variable,
+          activeThemeValue ? `theme-${activeThemeValue}` : ""
         )}
       >
         <ThemeProvider
-          themes={THEMES}
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
           enableColorScheme
         >
-          <TooltipProvider>
-            <div className="relative flex min-h-svh flex-col bg-background">
-              {children}
-            </div>
-          </TooltipProvider>
+          <ActiveThemeProvider initialTheme={activeThemeValue}>
+            <TooltipProvider>
+              <div className="relative flex min-h-svh flex-col bg-background">
+                {children}
+              </div>
+            </TooltipProvider>
+          </ActiveThemeProvider>
           <Toaster />
         </ThemeProvider>
       </body>

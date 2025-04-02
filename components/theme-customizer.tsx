@@ -23,6 +23,8 @@ import {
 } from "@/components/ui/popover"
 import { Skeleton } from "@/components/ui/skeleton"
 
+import { useThemeConfig } from "./active-theme"
+
 export function ThemeCustomizer() {
   return (
     <>
@@ -46,7 +48,7 @@ export function ThemeCustomizer() {
           </PopoverTrigger>
           <PopoverContent
             align="end"
-            className="z-[999] w-[340px] rounded-[12px] p-6"
+            className="z-999 w-[340px] rounded-[12px] p-6"
             sideOffset={10}
           >
             <Customizer />
@@ -58,6 +60,7 @@ export function ThemeCustomizer() {
 }
 
 export function Customizer() {
+  const { activeTheme, setActiveTheme } = useThemeConfig()
   const [mounted, setMounted] = React.useState(false)
   const { setTheme, resolvedTheme: theme } = useTheme()
 
@@ -66,7 +69,7 @@ export function Customizer() {
   }, [])
 
   return (
-    <div className="w-full">
+    <div className="w-full p-2 md:p-0">
       <div className="flex items-start pt-4 md:pt-0">
         <div className="space-y-1 pr-2">
           <div className="font-semibold leading-none tracking-tight">
@@ -89,9 +92,9 @@ export function Customizer() {
       <div className="flex flex-1 flex-col space-y-4 md:space-y-6">
         <div className="space-y-1.5">
           <Label className="text-xs">Color</Label>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="flex flex-col gap-2">
             {baseColors.map((color) => {
-              const isActive = theme?.includes(color.name)
+              const isActive = activeTheme === color.name
 
               return mounted ? (
                 <Button
@@ -99,27 +102,23 @@ export function Customizer() {
                   size="sm"
                   key={color.name}
                   onClick={() => {
-                    setTheme(
-                      theme?.includes("dark")
-                        ? `dark-${color.name}`
-                        : color.name
-                    )
+                    setActiveTheme(color.name)
                   }}
                   className={cn(
                     "justify-start",
-                    isActive && "border-2 border-primary"
+                    isActive && "border-2 border-primary dark:border-primary"
                   )}
                   style={
                     {
-                      "--theme-primary": `hsl(${
+                      "--theme-primary": `${
                         color?.activeColor[theme === "dark" ? "dark" : "light"]
-                      })`,
+                      }`,
                     } as React.CSSProperties
                   }
                 >
                   <span
                     className={cn(
-                      "mr-1 flex size-5 shrink-0 -translate-x-1 items-center justify-center rounded-full bg-[--theme-primary]"
+                      "mr-1 flex size-5 shrink-0 -translate-x-1 items-center justify-center rounded-full bg-[var(--theme-primary)]"
                     )}
                   >
                     {isActive && <CheckIcon className="size-4 text-white" />}
@@ -140,18 +139,8 @@ export function Customizer() {
                 <Button
                   variant={"outline"}
                   size="sm"
-                  onClick={() =>
-                    setTheme(
-                      theme === "dark"
-                        ? "light"
-                        : theme?.includes("dark")
-                          ? theme?.replace("dark-", "")
-                          : `${theme}`
-                    )
-                  }
-                  className={cn(
-                    !theme?.includes("dark") && "border-2 border-primary"
-                  )}
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  className={cn(theme !== "dark" && "border-2 border-primary")}
                 >
                   <SunIcon className="mr-1 -translate-x-1" />
                   Light
@@ -159,17 +148,10 @@ export function Customizer() {
                 <Button
                   variant={"outline"}
                   size="sm"
-                  onClick={() =>
-                    setTheme(
-                      theme === "light"
-                        ? "dark"
-                        : theme?.includes("dark")
-                          ? theme
-                          : `dark-${theme}`
-                    )
-                  }
+                  onClick={() => setTheme(theme === "light" ? "dark" : "light")}
                   className={cn(
-                    theme?.includes("dark") && "border-2 border-primary"
+                    theme === "dark" &&
+                      "border-2 border-primary dark:border-primary"
                   )}
                 >
                   <MoonIcon className="mr-1 -translate-x-1" />

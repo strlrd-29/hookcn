@@ -43,7 +43,7 @@ export function CodeBlockWrapper({
             "absolute flex items-center justify-center rounded-xl p-2",
             isOpened
               ? "inset-x-0 bottom-0 h-12"
-              : "inset-0 bg-gradient-to-b from-zinc-700/30 to-zinc-950/90"
+              : "inset-0 bg-linear-to-b from-zinc-700/30 to-zinc-950/90"
           )}
         >
           <CollapsibleTrigger asChild>
