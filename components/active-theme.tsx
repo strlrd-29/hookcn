@@ -4,7 +4,7 @@ import {
   createContext,
   ReactNode,
   useContext,
-  useEffect,
+  useLayoutEffect,
   useState,
 } from "react"
 
@@ -14,7 +14,9 @@ const DEFAULT_THEME = "default"
 function setThemeCookie(theme: string) {
   if (typeof window === "undefined") return
 
-  document.cookie = `${COOKIE_NAME}=${theme}; path=/; max-age=31536000; SameSite=Lax; ${window.location.protocol === "https:" ? "Secure;" : ""}`
+  document.cookie = `${COOKIE_NAME}=${theme}; path=/; max-age=31536000; SameSite=Lax; ${
+    window.location.protocol === "https:" ? "Secure;" : ""
+  }`
 }
 
 type ThemeContextType = {
@@ -24,18 +26,23 @@ type ThemeContextType = {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
-export function ActiveThemeProvider({
-  children,
-  initialTheme,
-}: {
-  children: ReactNode
-  initialTheme?: string
-}) {
-  const [activeTheme, setActiveTheme] = useState<string>(
-    () => initialTheme || DEFAULT_THEME
-  )
+export function ActiveThemeProvider({ children }: { children: ReactNode }) {
+  const [activeTheme, setActiveTheme] = useState<string>(DEFAULT_THEME)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    const cookie = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith(`${COOKIE_NAME}=`))
+    if (cookie) {
+      const cookieTheme = cookie.split("=")[1]
+      if (cookieTheme && cookieTheme !== activeTheme) {
+        setActiveTheme(cookieTheme)
+      }
+    }
+    // eslint-disable-next-line
+  }, [])
+
+  useLayoutEffect(() => {
     setThemeCookie(activeTheme)
 
     Array.from(document.body.classList)
@@ -43,6 +50,7 @@ export function ActiveThemeProvider({
       .forEach((className) => {
         document.body.classList.remove(className)
       })
+
     document.body.classList.add(`theme-${activeTheme}`)
     if (activeTheme.endsWith("-scaled")) {
       document.body.classList.add("theme-scaled")
