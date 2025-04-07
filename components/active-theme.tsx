@@ -59,6 +59,23 @@ export function ActiveThemeProvider({ children }: { children: ReactNode }) {
 
   return (
     <ThemeContext.Provider value={{ activeTheme, setActiveTheme }}>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+          (function() {
+            try {
+              const themeCookie = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('active_theme='));
+              if (themeCookie) {
+                const theme = themeCookie.split('=')[1];
+                document.body.classList.add('theme-' + theme);
+              }
+            } catch (e) {}
+          })();
+        `,
+        }}
+      />
       {children}
     </ThemeContext.Provider>
   )

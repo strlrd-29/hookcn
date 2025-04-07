@@ -82,23 +82,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
         )}
         suppressHydrationWarning
       >
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-          (function() {
-            try {
-              const themeCookie = document.cookie
-                .split('; ')
-                .find(row => row.startsWith('active_theme='));
-              if (themeCookie) {
-                const theme = themeCookie.split('=')[1];
-                document.body.classList.add('theme-' + theme);
-              }
-            } catch (e) {}
-          })();
-        `,
-          }}
-        />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
