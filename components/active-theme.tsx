@@ -4,7 +4,7 @@ import {
   createContext,
   ReactNode,
   useContext,
-  useLayoutEffect,
+  useEffect,
   useState,
 } from "react"
 
@@ -29,7 +29,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 export function ActiveThemeProvider({ children }: { children: ReactNode }) {
   const [activeTheme, setActiveTheme] = useState<string>(DEFAULT_THEME)
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const cookie = document.cookie
       .split("; ")
       .find((row) => row.startsWith(`${COOKIE_NAME}=`))
@@ -42,7 +42,7 @@ export function ActiveThemeProvider({ children }: { children: ReactNode }) {
     // eslint-disable-next-line
   }, [])
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setThemeCookie(activeTheme)
 
     Array.from(document.body.classList)
