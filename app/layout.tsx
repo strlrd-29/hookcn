@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next"
-import { cookies } from "next/headers"
 import { ThemeProvider } from "next-themes"
 
 import { META_THEME_COLORS, siteConfig } from "@/config/site"
@@ -72,19 +71,16 @@ interface RootLayoutProps {
   children: React.ReactNode
 }
 
-export default async function RootLayout({ children }: RootLayoutProps) {
-  const cookieStore = await cookies()
-  const activeThemeValue = cookieStore.get("active_theme")?.value
-
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
           "min-h-svh overflow-x-hidden bg-background font-sans antialiased",
           fontSans.variable,
-          fontMono.variable,
-          activeThemeValue ? `theme-${activeThemeValue}` : ""
+          fontMono.variable
         )}
+        suppressHydrationWarning
       >
         <ThemeProvider
           attribute="class"
@@ -93,7 +89,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           disableTransitionOnChange
           enableColorScheme
         >
-          <ActiveThemeProvider initialTheme={activeThemeValue}>
+          <ActiveThemeProvider>
             <TooltipProvider>
               <div className="relative flex min-h-svh flex-col bg-background">
                 {children}
