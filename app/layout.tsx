@@ -74,6 +74,13 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="10114de9-fbcb-417d-89a2-7ff4ac30db2d"
+        ></script>
+      </head>
       <body
         className={cn(
           "min-h-svh overflow-x-hidden bg-background font-sans antialiased",
