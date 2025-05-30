@@ -113,5 +113,14 @@ export const hooks: Registry = [
         type: "registry:hook",
       },
     ],
+  },  {
+    name: "use-in-view",
+    type: "registry:hook",
+    files: [
+      {
+        path: "hooks/use-in-view.ts",
+        type: "registry:hook",
+      },
+    ],
   },
 ]
