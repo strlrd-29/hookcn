@@ -1,0 +1,92 @@
+---
+title: useInView
+description: Track when an element is visible in the viewport using the Intersection Observer API with customizable detection options.
+links:
+  Intersection Observer API: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+---
+
+<ComponentPreview name="use-in-view-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add https://hookcn.ouassim.tech/r/use-in-view
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="use-in-view" />
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx {1, 6, 10}
+import { useRef } from "react"
+import { useInView } from "@/hooks/use-in-view"
+
+export function Component() {
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, {
+    margin: "0px 0px -100px 0px",
+    once: true,
+  })
+
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-500 ${
+        isInView ? "opacity-100 scale-100" : "opacity-0 scale-95"
+      }`}
+    >
+      <p>{isInView ? "Element is visible!" : "Element is hidden"}</p>
+    </div>
+  )
+}
+```
+
+## API Reference
+
+### Parameters
+
+| Name      | Type                           | Description                                       | Default |
+| --------- | ------------------------------ | ------------------------------------------------- | ------- |
+| `ref`     | `RefObject<HTMLElement>` \| `null` | Reference to the element to observe.             | -       |
+| `options` | `UseInViewOptions`             | Configuration options for the intersection observer. | `{}`    |
+
+### Options
+
+| Name      | Type                   | Description                                                                   | Default |
+| --------- | ---------------------- | ----------------------------------------------------------------------------- | ------- |
+| `root`    | `RefObject<Element>`   | The root element to use as the viewport.                                     | `null`  |
+| `margin`  | `string`               | Margin around the root. Can shrink or grow each side of the root element's bounding box. | `"0px"` |
+| `once`    | `boolean`              | If true, stop observing after the element enters the viewport once.          | `false` |
+| `initial` | `boolean`              | Initial value to return before the element has been measured.                 | `false` |
+| `amount`  | `"some"` \| `"all"` \| `number` | The amount of the element that should be visible. Number between 0 and 1.    | `"some"` |
+
+### Returns
+
+The `useInView` hook returns a boolean indicating whether the element is currently in view.
+
+| Type      | Description                                          |
+| --------- | ---------------------------------------------------- |
+| `boolean` | `true` if the element is in view, `false` otherwise. |
