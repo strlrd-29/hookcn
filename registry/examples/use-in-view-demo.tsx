@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { useInView } from "@/registry/hooks/use-in-view"
+import useInView from "@/registry/hooks/use-in-view"
 
 export default function UseInViewDemo() {
   const ref = React.useRef<HTMLDivElement>(null)
