@@ -250,4 +250,20 @@ export const Index: Record<string, any> = {
     ),
     source: "",
   },
+  "use-in-view-demo": {
+    name: "use-in-view-demo",
+    type: "registry:example",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "registry/examples/use-in-view-demo.tsx",
+        type: "registry:example",
+        target: "",
+      },
+    ],
+    component: React.lazy(
+      () => import("@/registry/examples/use-in-view-demo.tsx")
+    ),
+    source: "",
+  },
 }

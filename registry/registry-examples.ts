@@ -51,4 +51,14 @@ export const examples: Registry = [
       },
     ],
   },
+  {
+    name: "use-in-view-demo",
+    type: "registry:example",
+    files: [
+      {
+        path: "examples/use-in-view-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ]

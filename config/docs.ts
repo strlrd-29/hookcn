@@ -75,6 +75,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/hooks/use-mouse-position",
           items: [],
         },
+        {
+          title: "Use InView",
+          href: "/docs/hooks/use-in-view",
+          items: [],
+        },
       ],
     },
   ],
