@@ -114,4 +114,14 @@ export const hooks: Registry = [
       },
     ],
   },
+  {
+    name: "use-client",
+    type: "registry:hook",
+    files: [
+      {
+        path: "hooks/use-client.tsx",
+        type: "registry:hook",
+      },
+    ],
+  },
 ]
