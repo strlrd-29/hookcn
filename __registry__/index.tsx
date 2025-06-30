@@ -250,4 +250,18 @@ export const Index: Record<string, any> = {
     ),
     source: "",
   },
+  "use-client": {
+    name: "use-client",
+    type: "registry:hook",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "registry/hooks/use-client.tsx",
+        type: "registry:hook",
+        target: "",
+      },
+    ],
+    component: React.lazy(() => import("@/registry/hooks/use-client.tsx")),
+    source: "",
+  },
 }

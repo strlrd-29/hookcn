@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-client",
+  "type": "registry:hook",
+  "files": [
+    {
+      "path": "registry/hooks/use-client.tsx",
+      "content": "\"use client\"\n\nimport { useRef, useState } from \"react\"\n\ninterface UseClientProps {\n  baseURL?: string\n}\ninterface UseClientReturnProps {\n  loading: boolean,\n  refreshing: boolean,\n  cancel: () => void,\n  callApi: (props: CallApiProps) => Promise<ClientResponse>\n}\n\ninterface ClientResponse {\n  data: any\n  status: boolean | number\n}\n\ninterface CallApiProps {\n  url: string\n  method: \"GET\" | \"POST\" | \"PUT\" | \"DELETE\"\n  payload?: any\n  query?: any\n  multipart?: boolean\n  refresh?: boolean,\n  headers?: HeadersInit\n  onError?: (error: any) => void\n}\n\nexport const useClient = ({ baseURL }: UseClientProps): UseClientReturnProps => {\n  const [loading, setLoading] = useState(false)\n  const [refreshing, setRefreshing] = useState(false)\n  const controllerRef = useRef(new AbortController())\n\n  const cancel = () => {\n    controllerRef.current.abort()\n  }\n\n  const callApi = async ({\n    url = \"\",\n    method = \"GET\",\n    multipart = false,\n    refresh = false,\n    query,\n    payload,\n    onError = () => { },\n    headers: extraHeaders\n  }: CallApiProps): Promise<ClientResponse> => {\n    setLoading(true)\n    if (refresh) setRefreshing(true)\n\n    let fullURL = url\n    const queryString = new URLSearchParams(query).toString()\n    const headers: HeadersInit = {\n      \"Content-Type\": multipart ? \"multipart/form-data\" : \"application/json\",\n      ...extraHeaders\n    }\n    const fetchOptions = {\n      method,\n      headers,\n      body: multipart ? payload : JSON.stringify(payload),\n    }\n    if (query) {\n      fullURL = `${baseURL}${url}?${queryString}`\n    }\n    try {\n      const response = await fetch(fullURL, fetchOptions)\n      const result = await response.json()\n      if (!response.ok) onError(result);\n      return { data: result, status: response.status }\n\n    } catch (error: any) {\n      onError(error?.toString())\n      return { status: 500, data: error }\n\n    } finally {\n      setLoading(false)\n      if (refresh) setRefreshing(false)\n    }\n  }\n\n  return { cancel, loading, refreshing, callApi }\n}\n",
+      "type": "registry:hook"
+    }
+  ]
+}

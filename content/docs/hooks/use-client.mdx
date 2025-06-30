@@ -1,0 +1,178 @@
+---
+title: useClient
+description: A simple and consistent hook for making API requests in your application.
+---
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add https://hookcn.ouassim.tech/r/use-client
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="use-client" />
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+Let's assume we were building a sign in screen with formik to sign in users. this would be our `SignInPage` component:
+
+```tsx {4, 7}
+import { useFormik } from "formik"
+
+// zod schema definitions
+import { SignInParamsSchema, SignInParamsType } from "@/lib/validations/auth"
+import { useClient } from "@/hooks/use-client"
+
+export default function SignInPage() {
+  const { callApi } = useClient({ baseURL: "https://dummyjson.com" })
+
+  const handleFormSubmit = async (values: SignInParamsType) => {
+    try {
+      const result = await callApi({
+        method: "POST",
+        url: "/auth/login",
+        payload: values,
+        onError: (error) => {
+          console.log(error)
+          // Toast message
+        },
+      })
+
+      if (result?.status === 200) {
+        // Toast message
+        // Route to another page
+      } else {
+        // Toast message
+      }
+    } catch (error) {
+      // Toast message
+    }
+  }
+
+  const formik = useFormik<SignInParamsType>({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: SignInParamsSchema,
+    validateOnBlur: true,
+    onSubmit: handleFormSubmit,
+  })
+
+  const { handleChange, handleBlur, handleSubmit, isSubmitting, isValid } =
+    formik
+
+  return (
+    <div className="">
+      <div className="font-medium text-xl">Sign in</div>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <input
+          id="email"
+          onBlur={handleBlur}
+          onChange={handleChange}
+          type="email"
+        />
+        <input
+          id="password"
+          type="password"
+          onBlur={handleBlur}
+          onChange={handleChange}
+        />
+        <a
+          href={"/auth/forgot-password"}
+          className={"text-sm text-tertiary underline cursor-pointer"}
+        >
+          Forgot Password?
+        </a>
+        <button type="submit" disabled={!isValid || isSubmitting}>
+          {isSubmitting ? "Loading" : "Sign In"}
+        </button>
+      </form>
+    </div>
+  )
+}
+```
+
+## Authenticated routes
+
+The callApi function can receive extra headers in the `headers` property.
+
+```typescript
+// @/hooks/use-client.tsx"
+
+  ...
+  const result = await callApi({
+        method: "GET",
+        url: "/user/me",
+        payload: values,
+        headers:{
+          Authorization: "Bearer {{ACCESS_TOKEN}}",
+        }
+        onError: (error) => {
+          console.log(error)
+          // Toast message
+        },
+      })
+  ...
+
+```
+
+You can handle 401 status codes on API endpoints (excluding sign-in and sign-up) to redirect users or sign them out.
+
+## API Reference
+
+### Parameters
+
+The `callApi` function accepts an options object with the following optional parameters:
+
+| Name         | Type                                   | Default     | Description                                                                                                                      |
+| ------------ | -------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `url?`       | `string`                               | `undefined` | The endpoint to which the API request will be sent.                                                                              |
+| `method?`    | `'GET' \| 'POST' \| 'PUT' \| 'DELETE'` | `'GET'`     | The HTTP method to use for the request.                                                                                          |
+| `payload?`   | `any`                                  | `undefined` | The data to be sent as the request body, typically for POST or PUT methods.                                                      |
+| `query?`     | `Record<string, string>`               | `{}`        | Key-value pairs appended to the URL as query parameters.                                                                         |
+| `multipart?` | `boolean`                              | `false`     | Whether the request should use multipart/form-data encoding.                                                                     |
+| `refresh?`   | `boolean`                              | `false`     | Determines whether the request should use provided queries for request, especially good for requests associated with pagination. |
+| `headers?`   | `HeadersInit`                          | `{}`        | Custom headers to include with the request. Supports plain objects, arrays, or `Headers` instance.                               |
+| `onError?`   | `(error: any) => void`                 | `undefined` | Callback function to handle errors manually (e.g., custom toast, logger, etc.).                                                  |
+
+### Returns
+
+The `useClient` hook returns an object with the following properties:
+
+| Name         | Type                                               | Description                                                               |
+| ------------ | -------------------------------------------------- | ------------------------------------------------------------------------- |
+| `callApi`    | `(props: CallApiProps) => Promise<ClientResponse>` | A function that initiates the API request and returns a `ClientResponse`. |
+| `cancel`     | `() => void`                                       | A function to cancel the request if it's still in progress.               |
+| `loading`    | `boolean`                                          | Indicates whether an API request is currently in progress.                |
+| `refreshing` | `boolean`                                          | Indicates whether a refresh request is currently in progress.             |
+
+---
+
+The `ClientResponse` type represents the shape of the data returned by `callApi`.
+
+| Name     | Type     | Description                                            |
+| -------- | -------- | ------------------------------------------------------ |
+| `status` | `number` | The HTTP status code returned by the API.              |
+| `data`   | `any`    | The parsed JSON response returned by the API endpoint. |
