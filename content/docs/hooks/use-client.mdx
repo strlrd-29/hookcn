@@ -35,6 +35,7 @@ npx shadcn@latest add https://hookcn.ouassim.tech/r/use-client
 </Tabs>
 
 ## Usage
+Let's assume we were building a sign in screen with formik to sign in users. this would be our `SignInPage` component:
 
 ```tsx {4, 7}
 import { useFormik } from "formik"
@@ -44,14 +45,18 @@ import { SignInParamsSchema, SignInParamsType } from "@/lib/validations/auth"
 import { useClient } from "@/hooks/use-client"
 
 export default function SignInPage() {
-  const { callApi } = useClient()
+  const { callApi } = useClient({ baseURL: "https://dummyjson.com" })
 
   const handleFormSubmit = async (values: SignInParamsType) => {
     try {
       const result = await callApi({
         method: "POST",
-        url: "http:/localhost:4000/api/auth/sign-in",
+        url: "/auth/login",
         payload: values,
+        onError: (error) => {
+          console.log(error)
+          // Toast message
+        },
       })
 
       if (result?.status === 200) {
@@ -109,21 +114,26 @@ export default function SignInPage() {
 }
 ```
 
-## Customization tips
+## Authenticated routes
 
-The hook can be customized to connect with state managemnt stores like zustand, redux, etc to ensure requests are sent with tokens
+The callApi function can receive extra headers in the `headers` property.
 
 ```typescript
 // @/hooks/use-client.tsx"
 
   ...
-  const { tokens } = useAuthStore()
-  const [data, setData] = useState(null);
-  ...
-  const headers = {
-      'Content-Type': multipart ? 'multipart/form-data' : 'application/json',
-      Authorization: tokens?.accessToken ? `Bearer ${tokens?.accessToken}` : '',
-  };
+  const result = await callApi({
+        method: "GET",
+        url: "/user/me",
+        payload: values,
+        headers:{
+          Authorization: "Bearer {{ACCESS_TOKEN}}",
+        }
+        onError: (error) => {
+          console.log(error)
+          // Toast message
+        },
+      })
   ...
 
 ```
@@ -136,15 +146,16 @@ You can handle 401 status codes on API endpoints (excluding sign-in and sign-up)
 
 The `callApi` function accepts an options object with the following optional parameters:
 
-| Name         | Type                           | Default     | Description                                                                                                                      |
-| ------------ | ------------------------------ | ----------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `url?`       | `string`                       | `undefined` | The endpoint to which the API request will be sent.                                                                              |
-| `method?`    | `GET`, `POST`, `PUT`, `DELETE` | `'GET'`     | The HTTP method to use for the request.                                                                                          |
-| `payload?`   | `any`                          | `undefined` | The data to be sent as the request body, typically for POST or PUT methods.                                                      |
-| `query?`     | `Record<string, string>`       | `{}`        | Key-value pairs appended to the URL as query parameters.                                                                         |
-| `multipart?` | `boolean`                      | `false`     | Whether the request should use multipart/form-data encoding.                                                                     |
-| `refresh?`   | `boolean`                      | `false`     | Determines whether the request should use provided queries for request, especially good for requests associated with pagination. |
-| `showError?` | `boolean`                      | `true`      | If true, automatically displays error messages (e.g., via toast, console.log).                                                   |
+| Name         | Type                                   | Default     | Description                                                                                                                      |
+| ------------ | -------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `url?`       | `string`                               | `undefined` | The endpoint to which the API request will be sent.                                                                              |
+| `method?`    | `'GET' \| 'POST' \| 'PUT' \| 'DELETE'` | `'GET'`     | The HTTP method to use for the request.                                                                                          |
+| `payload?`   | `any`                                  | `undefined` | The data to be sent as the request body, typically for POST or PUT methods.                                                      |
+| `query?`     | `Record<string, string>`               | `{}`        | Key-value pairs appended to the URL as query parameters.                                                                         |
+| `multipart?` | `boolean`                              | `false`     | Whether the request should use multipart/form-data encoding.                                                                     |
+| `refresh?`   | `boolean`                              | `false`     | Determines whether the request should use provided queries for request, especially good for requests associated with pagination. |
+| `headers?`   | `HeadersInit`                          | `{}`        | Custom headers to include with the request. Supports plain objects, arrays, or `Headers` instance.                               |
+| `onError?`   | `(error: any) => void`                 | `undefined` | Callback function to handle errors manually (e.g., custom toast, logger, etc.).                                                  |
 
 ### Returns
 
@@ -156,7 +167,6 @@ The `useClient` hook returns an object with the following properties:
 | `cancel`     | `() => void`                                       | A function to cancel the request if it's still in progress.               |
 | `loading`    | `boolean`                                          | Indicates whether an API request is currently in progress.                |
 | `refreshing` | `boolean`                                          | Indicates whether a refresh request is currently in progress.             |
-| `error`      | `string`                                           | An error message if the request fails.                                    |
 
 ---
 
