@@ -1,4 +1,3 @@
-import { getHighlighter } from "@shikijs/compat"
 import {
   defineDocumentType,
   makeSource,
@@ -7,6 +6,7 @@ import {
 import rehypePrettyCode from "rehype-pretty-code"
 import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
+import { createHighlighter } from "shiki"
 import { visit } from "unist-util-visit"
 
 import { rehypeComponent } from "@/lib/rehype-component"
@@ -72,7 +72,7 @@ export default makeSource({
       [
         rehypePrettyCode,
         {
-          getHighlighter,
+          createHighlighter,
           theme: "github-dark",
         },
       ],
