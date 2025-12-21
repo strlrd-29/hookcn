@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "next build --turbopack",
     "build:registry": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-registry.mts && pnpm dlx shadcn@latest build public/r/index.json --output public/r/hooks",
     "start": "next start",
     "lint": "next lint",
