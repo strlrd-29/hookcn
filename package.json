@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "check": "ultracite check",
+    "fix": "ultracite fix",
     "prepare": "lefthook install"
   },
   "dependencies": {
