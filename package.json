@@ -8,13 +8,17 @@
     "start": "next start",
     "check": "ultracite check",
     "fix": "ultracite fix",
-    "prepare": "lefthook install"
+    "prepare": "lefthook install",
+    "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
     "@base-ui/react": "^1.0.0",
     "@tabler/icons-react": "^3.36.0",
+    "@types/mdx": "^2.0.13",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "fumadocs-core": "^16.4.1",
+    "fumadocs-mdx": "^14.2.3",
     "next": "16.1.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
